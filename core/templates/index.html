@@ -86,19 +86,25 @@
             <h2>Mis Proyectos</h2>
 
             <div class="card">
+              <a href ="{% url 'proyecto_agencia' %}">
                 <h2>Sistema de Gestión para Agencia de Autos</h2>
                 <p>Aplicación de escritorio desarrollada con Python, SQL-server y PyQt5 para administrar ventas, inventario y reportes en Excel.</p>
+              </a>
             </div>
 
             <div class="card">
-                <h2>Sistema de un cine</h2>
-                <p>Desarrollo Web en django para la administracion de un cine ademas de venta de entradas,cartelera, roles de usuario para el staff y para los clientes. Incluyendo el uso de una API para las peliculas y su información.</p>
-                </p>
+              <a href ="{% url 'proyecto_cine' %}">
+                <h2>Proyecto Cine</h2>
+                  <p>Desarrollo Web en django para la administracion de un cine ademas de venta de entradas,cartelera, roles de usuario para el staff y para los clientes. Incluyendo el uso de una API para las peliculas y su información.</p>
+                  </p>
+                </a>
             </div>
 
             <div class="card">
-                <h2>API REST de productos</h2>
-                <p>Microservicio RESTful para un e-commerce, hecho con FastApi, incluyendo autenticación JWT y paginación.</p>
+              <a href ="{% url 'proyecto_ecommerce' %}">
+                <h2>E-Commerce REST</h2>
+                <p>Actualmente en desarrollo e-commerce Rest en Django y front en Angular</p>
+                </a>
             </div>
         </section>
 

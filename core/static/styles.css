@@ -79,6 +79,9 @@ header p {
     color: #E2E8F0; /* Texto claro */
 }
 
+.card a{
+    text-decoration: none
+}
 /* Footer opcional */
 footer {
     text-align: center;

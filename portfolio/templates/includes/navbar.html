@@ -8,13 +8,13 @@
     <div class="collapse navbar-collapse" id="navbarMain">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
         <li class="nav-item">
-          <a class="btn btn-nav" href="#">Inicio</a>
+          <a class="btn btn-nav" href="{%url 'index' %}">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-nav" href="#proyectos">Proyectos</a>
+          <a class="btn btn-nav" href="{% url 'index' %}#proyectos">Proyectos</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-nav" href="#contacto">Contacto</a>
+          <a class="btn btn-nav" href="{% url 'index' %}#contacto">Contacto</a>
         </li>
         <li class="nav-item">
           <a class="btn btn-nav" href="https://github.com/cucu2023" target="_blank">GitHub</a>
