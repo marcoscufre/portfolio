@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'carrousel.css' %}">
     <link rel ="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
 </head>
 <body>
@@ -42,6 +43,37 @@
 </ul>
 <hr>
 <h3>Una breve muestra:</h3>
-
-
+<p class="text-center  small mb-2" style="color: #fff;">
+  <i class="bi bi-arrow-left"></i>
+  Usa las flechas del teclado para desplazar las imágenes
+  <i class="bi bi-arrow-right"></i>
+<div class="slider">
+<img id="modalImg1" src="{% static 'images/image1.webp' %}" alt="Imagen 1" class="img-fluid rounded w-100" style="max-height: 80vh; object-fit: contain;">
+<img id="modalImg2" src="{% static 'images/image2.webp' %}" alt="Imagen 2" class="img-fluid rounded w-100" style="max-height: 80vh; object-fit: contain;">
+<img id="modalImg3" src="{% static 'images/image3.webp' %}" alt="Imagen 3" class="img-fluid rounded w-100" style="max-height: 80vh; object-fit: contain;">
+<img id="modalImg4" src="{% static 'images/image4.webp' %}" alt="Imagen 4" class="img-fluid rounded w-100" style="max-height: 80vh; object-fit: contain;">
+<img id="modalImg5" src="{% static 'images/image5.webp' %}" alt="Imagen 5" class="img-fluid rounded w-100" style="max-height: 80vh; object-fit: contain;">
+<img id="modalImg6" src="{% static 'images/image6.webp' %}" alt="Imagen 6" class="img-fluid rounded w-100" style="max-height: 80vh; object-fit: contain;">
+<img id="modalImg7" src="{% static 'images/image7.webp' %}" alt="Imagen 7" class="img-fluid rounded w-100" style="max-height: 80vh; object-fit: contain;">
+<img id="modalImg8" src="{% static 'images/image8.webp' %}" alt="Imagen 8" class="img-fluid rounded w-100" style="max-height: 80vh; object-fit: contain;">
+<img id="modalImg9" src="{% static 'images/image9.webp' %}" alt="Imagen 9" class="img-fluid rounded w-100" style="max-height: 80vh; object-fit: contain;">
+</div>
+<div class="modal fade" id="imgModal" tabindex="-1" aria-labelledby="imgModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content bg-dark">
+      <div class="modal-body text-center">
+        <img id="modalImg" src="" alt="Imagen ampliada" class="img-fluid rounded w-100">
+      </div>
+    </div>
+  </div>
+</div>
 </section>
+<script>
+document.querySelectorAll('.slider img').forEach(img => {
+  img.addEventListener('click', function() {
+    document.getElementById('modalImg').src = this.src;
+    const modal = new bootstrap.Modal(document.getElementById('imgModal'));
+    modal.show();
+  });
+});
+</script>

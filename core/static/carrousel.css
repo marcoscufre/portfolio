@@ -1,0 +1,28 @@
+/* ...existing code... */
+.slider {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    background: #222;
+    gap: 10px;
+    padding: 10px 0;
+    border-radius: 10px;
+    scrollbar-width: none; /* Firefox */
+}
+.slider::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+.slider img {
+    width: 400px; /* ancho fijo para scroll horizontal */
+    height: 250px;
+    object-fit: contain;
+    border-radius: 5px;
+    scroll-snap-align: center;
+    background: #111;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+/* ...existing code... */
