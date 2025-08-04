@@ -7,8 +7,85 @@
     <title>Proyecto Agencia</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'carrousel.css' %}">
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon"> 
 </head>
 <body>
 {% include 'includes/navbar.html' %}
+<body class="bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white font-sans">
+  
+  <section class="container py-5">
+    <div class="glass p-4 rounded-xl shadow-xl">
+
+      <h1 class="text-3xl md:text-4xl font-bold text-cyan-400 mb-2">Sistema de Gestión para Agencia de Autos</h1>
+      <p class="text-gray-300 mb-4">Aplicación de escritorio desarrollada en Python con PyQt5, orientada a automatizar procesos en pequeñas agencias de venta de vehículos.</p>
+
+      <hr class="border-cyan-500 my-4">
+
+       <h2 class="text-xl text-violet-400 font-semibold mb-2"> Descripción</h2>
+      <p class="mb-4">
+        Esta herramienta permite gestionar de manera integral el inventario de vehículos, los clientes, las ventas y la generación de reportes automatizados en Excel. Diseñada con una interfaz moderna y adaptable, busca optimizar los tiempos administrativos de una agencia de autos tradicional.
+      </p>
+      <hr>
+      <h3>Tecnologías utilizadas</h3>
+      <ul class="list-unstyled">
+        <li><i class="bi bi-filetype-py"></i> Python: Lenguaje de programación principal</li>
+        <li><i class="bi bi-database"></i> SQL Server: Base de datos utilizada</li>
+        <li><i class="bi bi-filetype-psd"></i> Pyodbc: Conector ODBC para Python</li>
+        <li><i class="bi bi-filetype-psd"></i> PyQt5: Framework para la interfaz de usuario</li>
+        <li><i class="bi bi-filetype-psd"></i> Openpyxl: Librería para manipulación de archivos Excel en Python</li>
+      </ul>
+      <hr>
+      <h2 class="text-xl text-violet-400 font-semibold mb-2"> Funcionalidades principales</h2>
+      <ul class="list-unstyled">
+        <li class="bi bi-person-badge"> Gestión de vehículos, Operaciones Crud.</li>
+        <li class="bi bi-file-earmark-text"> Registro y seguimiento de ventas.</li>
+        <li class="bi bi-person"> Consulta y filtrado de clientes.</li>
+        <li class="bi bi-file-earmark-spreadsheet"> Exportación de reportes mensuales en formato Excel.</li>
+        <li class="bi bi-lock"> Login de acceso para garantizar privacidad de datos.</li>
+      </ul>
+      <hr>
+      <h2 class="text-xl text-violet-400 font-semibold mb-2">Muestra de la aplicación:</h2>
+      <div id="carouselCapturas" class="carousel slide mb-4 rounded -xl" data-bs-ride="carousel">
+        <div class="carousel-inner rounded-lg shadow-lg">
+          <div class="carousel-item active">
+            <img src="{% static 'images/agencia1.webp' %}" class="d-block w-100 rounded -xl" alt="Pantalla principal">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/agencia2.webp' %}" class="d-block w-100 rounded -xl" alt="Listado de autos">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/agencia3.webp' %}" class="d-block w-100 rounded -xl" alt="Generación de Excel">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/agencia4.webp' %}" class="d-block w-100 rounded -xl" alt="Formulario de ventas">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'images/agencia5.webp' %}" class="d-block w-100 rounded -xl" alt="Login de acceso">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselCapturas" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bg-dark rounded" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselCapturas" data-bs-slide="next">
+          <span class="carousel-control-next-icon bg-dark rounded" aria-hidden="true"></span>
+        </button>
+      </div>
+      <hr>
+
+      <h2 class="text-xl text-violet-400 font-semibold mb-2"> Desafíos técnicos</h2>
+      <p class="mb-4">
+        La exportación a Excel bloqueaba la interfaz, así que aprendí a utilizar <code>QThread</code> para generar los reportes en segundo plano. También implementé validaciones en formularios para asegurar integridad de datos.
+      </p>
+      <hr>
+      <a href="https://github.com/cucu2023/agencia_proyecto" id = "repo" class="btn-repo" target="_blank">Repositorio
+      <i class="bi bi-github"></i>
+      </a>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -55,33 +55,43 @@ header p {
     font-size: 1.2rem;
 }
 
-/* Tarjetas de proyecto */
+/* ...existing code... */
 .card {
-    background-color: #1E293B;
+    background-color: #1E293B; /* Gris oscuro */
     padding: 1.5rem;
     border-radius: 10px;
     margin-bottom: 2rem;
-    box-shadow: 0 0 10px rgba(56, 189, 248, 0.1);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.1); /* Sombra azul cian */
     transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #38BDF8; /* Borde azul cian */
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.2); /* Sombra verde lima */
+    border-color: #10B981; /* Borde verde lima en hover */
 }
 
 .card h2 {
-    color: #8B5CF6; /* Acento púrpura */
+    color: #38BDF8; /* Azul cian */
     margin-bottom: 0.5rem;
 }
 
 .card p {
-    color: #E2E8F0; /* Texto claro */
+    color: #F1F5F9; /* Texto claro */
 }
 
-.card a{
-    text-decoration: none
+.card a {
+    text-decoration: none;
+    color: #38BDF8; /* Azul cian para el enlace */
+    transition: color 0.3s;
 }
+
+.card a:hover {
+    color: #10B981; /* Verde lima en hover */
+}
+/* ...existing code... */
+
 /* Footer opcional */
 footer {
     text-align: center;

@@ -19,5 +19,3 @@ def proyecto_ecommerce(request):
     return render(request, 'proyecto_ecommerce.html')
 
 
-def about(request):
-    return render(request, 'about.html')
