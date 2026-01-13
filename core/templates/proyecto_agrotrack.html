@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroTrack - Sistema de Gestión Agrícola</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'carrousel.css' %}">
+    <link rel="stylesheet" href="{% static 'mansory.css' %}">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+</head>
+<body>
+{% include 'includes/navbar.html' %}
+<section class="container mt-5">
+    <h1 class="text-center">AgroTrack</h1>
+    <h2 class="text-center text-muted">Sistema de Gestión Agrícola para Cultivos Intensivos</h2>
+    <p class="text-center mt-3">
+        Plataforma integral desarrollada con <strong>Django REST Framework</strong> y <strong>Vue 3</strong> para la administración eficiente de establecimientos agrícolas.
+    </p>
+    <hr>
+    
+    <h3>Descripción del Proyecto</h3>
+    <p>
+        AgroTrack es una solución robusta diseñada para optimizar la gestión de cultivos intensivos. El sistema permite el seguimiento detallado de lotes, labores culturales, aplicaciones de insumos y monitoreo de condiciones climáticas, facilitando la toma de decisiones basada en datos.
+    </p>
+    <ul class="list-unstyled">
+        <li class="mb-2"><i class="bi bi-map-fill me-2"></i> <strong>Gestión Geoespacial:</strong> Trazado de multipolígonos en mapa interactivo (Leaflet-draw) para delimitar lotes y establecimientos.</li>
+        <li class="mb-2"><i class="bi bi-cloud-sun-fill me-2"></i> <strong>Servicios Externos:</strong> Consumo de APIs de clima y geolocalización en tiempo real.</li>
+        <li class="mb-2"><i class="bi bi-shield-lock-fill me-2"></i> <strong>Seguridad:</strong> Autenticación robusta mediante JWT con cookies HttpOnly.</li>
+        <li class="mb-2"><i class="bi bi-database-fill me-2"></i> <strong>Datos Complejos:</strong> Uso de JSONField/JSONBinary en PostgreSQL para estructuras de datos flexibles.</li>
+        <li class="mb-2"><i class="bi bi-file-earmark-code-fill me-2"></i> <strong>Documentación:</strong> API completamente documentada con Swagger/OpenAPI.</li>
+    </ul>
+    
+    <hr>
+    
+    <h3>Stack Tecnológico</h3>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+            <h5 class="text-primary"><i class="bi bi-server me-2"></i>Backend</h5>
+            <ul>
+                <li>Python & Django REST Framework</li>
+                <li>PostgreSQL (con extensiones Geoespaciales)</li>
+                <li>Django TestCase (Testing)</li>
+                <li>JWT Auth (HttpOnly Cookies)</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h5 class="text-success"><i class="bi bi-laptop me-2"></i>Frontend</h5>
+            <ul>
+                <li>Vue 3 (Composition API)</li>
+                <li>Vite & Pinia (State Management)</li>
+                <li>Leaflet & Leaflet-draw (Mapas)</li>
+                <li>Cypress (E2E Testing)</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3>Metodología y Planificación</h3>
+    <p>El proyecto se desarrolló siguiendo prácticas de <strong>Código Limpio (Clean Code)</strong> y metodologías ágiles.</p>
+    <ul class="list-unstyled">
+        <li><i class="bi bi-kanban me-2"></i>Planificación y seguimiento en <strong>Notion</strong>.</li>
+        <li><i class="bi bi-diagram-3 me-2"></i>Diagramado exhaustivo: <strong>DER</strong>, Clases, Flujo, Transición de Estados y Casos de Uso.</li>
+        <li><i class="bi bi-palette me-2"></i>Prototipado UI/UX en <strong>Figma</strong>.</li>
+        <li><i class="bi bi-check-circle me-2"></i>Revisiones de código y Testing continuo.</li>
+    </ul>
+
+    <hr>
+    
+    <h3>Galería del Sistema</h3>
+    <p class="text-muted mb-4">Capturas de pantalla de los módulos principales: Dashboard, Gestión de Lotes, Labores y Reportes.</p>
+    
+    <div class="grid">
+        <div class="grid-item"><img src="{% static 'images/agrotrack/landingAgroTrack.png' %}" alt="Landing Page" onclick="openModal(this)"></div>
+        <div class="grid-item"><img src="{% static 'images/agrotrack/dashboard.png' %}" alt="Dashboard Principal" onclick="openModal(this)"></div>
+        <div class="grid-item"><img src="{% static 'images/agrotrack/lote.png' %}" alt="Detalle de Lote" onclick="openModal(this)"></div>
+        <div class="grid-item"><img src="{% static 'images/agrotrack/establecimientos.png' %}" alt="Establecimientos" onclick="openModal(this)"></div>
+        <div class="grid-item"><img src="{% static 'images/agrotrack/labores.png' %}" alt="Registro de Labores" onclick="openModal(this)"></div>
+        <div class="grid-item"><img src="{% static 'images/agrotrack/reportes.png' %}" alt="Reportes" onclick="openModal(this)"></div>
+        <div class="grid-item"><img src="{% static 'images/agrotrack/aplicaciones.png' %}" alt="Aplicaciones" onclick="openModal(this)"></div>
+        <div class="grid-item"><img src="{% static 'images/agrotrack/muestras.png' %}" alt="Muestras" onclick="openModal(this)"></div>
+        <div class="grid-item"><img src="{% static 'images/agrotrack/herramientas_riego.png' %}" alt="Herramientas Riego" onclick="openModal(this)"></div>
+    </div>
+
+    <div id="modal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
+    <hr>
+    
+    <div class="d-flex justify-content-center gap-3 mb-5">
+        <button class="btn btn-secondary" disabled>Repositorio Privado <i class="bi bi-lock-fill"></i></button>
+        <!-- Si hay link público, agregarlo aquí -->
+    </div>
+
+</section>
+
+<script>
+  function openModal(imgElement) {
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modal-img");
+    modal.style.display = "flex";
+    modalImg.src = imgElement.src;
+  }
+
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+  }
+</script>
+</body>
+</html>

@@ -15,7 +15,7 @@ def proyecto_agencia(request):
     return render(request, 'proyecto_agencia.html')
 
 
-def proyecto_ecommerce(request):
-    return render(request, 'proyecto_ecommerce.html')
+def proyecto_agrotrack(request):
+    return render(request, 'proyecto_agrotrack.html')
 
 
