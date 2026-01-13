@@ -17,7 +17,8 @@
 {% include 'includes/navbar.html' %}
 <section class="container mt-5">
     <h1 class="text-center">AgroTrack</h1>
-    <h2 class="text-center text-muted">Sistema de Gestión Agrícola para Cultivos Intensivos</h2>
+    <!-- Changed text-muted to text-white per request -->
+    <h2 class="text-center text-white">Sistema de Gestión Agrícola para Cultivos Intensivos</h2>
     <p class="text-center mt-3">
         Plataforma integral desarrollada con <strong>Django REST Framework</strong> y <strong>Vue 3</strong> para la administración eficiente de establecimientos agrícolas.
     </p>
@@ -30,6 +31,8 @@
     <ul class="list-unstyled">
         <li class="mb-2"><i class="bi bi-map-fill me-2"></i> <strong>Gestión Geoespacial:</strong> Trazado de multipolígonos en mapa interactivo (Leaflet-draw) para delimitar lotes y establecimientos.</li>
         <li class="mb-2"><i class="bi bi-cloud-sun-fill me-2"></i> <strong>Servicios Externos:</strong> Consumo de APIs de clima y geolocalización en tiempo real.</li>
+        <li class="mb-2"><i class="bi bi-file-earmark-pdf-fill me-2"></i> <strong>Reportes Avanzados:</strong> Generación de reportes PDF detallados utilizando <strong>WeasyPrint</strong>.</li>
+        <li class="mb-2"><i class="bi bi-bar-chart-fill me-2"></i> <strong>Visualización de Datos:</strong> Gráficos interactivos y dinámicos implementados con <strong>Vue Charts</strong>.</li>
         <li class="mb-2"><i class="bi bi-shield-lock-fill me-2"></i> <strong>Seguridad:</strong> Autenticación robusta mediante JWT con cookies HttpOnly.</li>
         <li class="mb-2"><i class="bi bi-database-fill me-2"></i> <strong>Datos Complejos:</strong> Uso de JSONField/JSONBinary en PostgreSQL para estructuras de datos flexibles.</li>
         <li class="mb-2"><i class="bi bi-file-earmark-code-fill me-2"></i> <strong>Documentación:</strong> API completamente documentada con Swagger/OpenAPI.</li>
@@ -44,6 +47,7 @@
             <ul>
                 <li>Python & Django REST Framework</li>
                 <li>PostgreSQL (con extensiones Geoespaciales)</li>
+                <li>WeasyPrint (Reportes PDF)</li>
                 <li>Django TestCase (Testing)</li>
                 <li>JWT Auth (HttpOnly Cookies)</li>
             </ul>
@@ -53,6 +57,7 @@
             <ul>
                 <li>Vue 3 (Composition API)</li>
                 <li>Vite & Pinia (State Management)</li>
+                <li>Vue Charts (Gráficos)</li>
                 <li>Leaflet & Leaflet-draw (Mapas)</li>
                 <li>Cypress (E2E Testing)</li>
             </ul>
@@ -76,7 +81,13 @@
     <p class="text-muted mb-4">Capturas de pantalla de los módulos principales: Dashboard, Gestión de Lotes, Labores y Reportes.</p>
     
     <div class="grid">
-        <div class="grid-item"><img src="{% static 'images/agrotrack/landingAgroTrack.png' %}" alt="Landing Page" onclick="openModal(this)"></div>
+        <!-- Landing Page Image with specific flag for lateral scroll -->
+        <div class="grid-item">
+            <img src="{% static 'images/agrotrack/landingAgroTrack.png' %}" alt="Landing Page" onclick="openModal(this, true)">
+            <p class="text-center small mt-1 text-muted">Landing Page (Click para ver completa)</p>
+        </div>
+        
+        <!-- Standard Images -->
         <div class="grid-item"><img src="{% static 'images/agrotrack/dashboard.png' %}" alt="Dashboard Principal" onclick="openModal(this)"></div>
         <div class="grid-item"><img src="{% static 'images/agrotrack/lote.png' %}" alt="Detalle de Lote" onclick="openModal(this)"></div>
         <div class="grid-item"><img src="{% static 'images/agrotrack/establecimientos.png' %}" alt="Establecimientos" onclick="openModal(this)"></div>
@@ -88,7 +99,7 @@
     </div>
 
     <div id="modal" class="modal" onclick="closeModal()">
-        <span class="close">&times;</span>
+        <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="modal-img">
     </div>
 
@@ -96,21 +107,39 @@
     
     <div class="d-flex justify-content-center gap-3 mb-5">
         <button class="btn btn-secondary" disabled>Repositorio Privado <i class="bi bi-lock-fill"></i></button>
-        <!-- Si hay link público, agregarlo aquí -->
     </div>
 
 </section>
 
 <script>
-  function openModal(imgElement) {
+  function openModal(imgElement, lateralScroll = false) {
     const modal = document.getElementById("modal");
     const modalImg = document.getElementById("modal-img");
-    modal.style.display = "flex";
+    
     modalImg.src = imgElement.src;
+    
+    // Toggle class based on image type
+    if (lateralScroll) {
+        modal.classList.add('lateral-scroll');
+        modal.style.display = "block"; // Override flex display
+    } else {
+        modal.classList.remove('lateral-scroll');
+        modal.style.display = "flex";
+    }
   }
 
   function closeModal() {
-    document.getElementById("modal").style.display = "none";
+    const modal = document.getElementById("modal");
+    modal.style.display = "none";
+    modal.classList.remove('lateral-scroll');
+  }
+  
+  // Close modal when clicking outside image
+  window.onclick = function(event) {
+    const modal = document.getElementById("modal");
+    if (event.target == modal) {
+        closeModal();
+    }
   }
 </script>
 </body>
