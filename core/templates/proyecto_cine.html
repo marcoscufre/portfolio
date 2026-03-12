@@ -40,7 +40,7 @@
                     </div>
                     <h1 class="hero-title mb-4" style="font-size: 3.5rem;">Movie Theater Management</h1>
                     <p class="text-muted fs-5 mb-5">
-                        Plataforma integral para la gestión de salas de cine y reserva de entradas.
+                        Plataforma integral desarrollada en Django para la gestión eficiente de salas de cine, automatizando desde la programación de funciones hasta el procesamiento de ventas y promociones.
                     </p>
                     <div class="d-flex gap-3">
                         <a href="https://github.com/cucu2023/proyecto_cine" target="_blank" class="btn btn-outline-secondary px-4 py-2 fw-bold">GitHub Repo</a>
@@ -55,7 +55,7 @@
 
     <section class="py-5 border-top border-bottom border-white border-opacity-5">
         <div class="container">
-            <div class="row g-4 text-center original-colors">
+            <div class="row g-4 text-center">
                 <div class="col">
                     <div class="tech-icon-wrapper">
                         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#092E20"><title>Django</title><path d="M11.146 0h3.924v18.166c-2.013.382-3.491.535-5.096.535-4.791 0-7.288-2.166-7.288-6.32 0-4.002 2.65-6.6 6.753-6.6.637 0 1.121.05 1.707.203zm0 9.143a3.894 3.894 0 00-1.325-.204c-1.988 0-3.134 1.223-3.134 3.365 0 2.09 1.096 3.236 3.109 3.236.433 0 .79-.025 1.35-.102V9.142zM21.314 6.06v9.098c0 3.134-.229 4.638-.917 5.937-.637 1.249-1.478 2.039-3.211 2.905l-3.644-1.733c1.733-.815 2.574-1.53 3.109-2.625.561-1.121.739-2.421.739-5.835V6.059h3.924zM17.39.021h3.924v4.026H17.39z"/></svg>
@@ -84,12 +84,87 @@
         </div>
     </section>
 
-    <section class="py-100">
-        <div class="container text-center py-5">
-            <h2 class="fw-bold mb-4">Core Management System</h2>
-            <p class="text-muted fs-5 mx-auto" style="max-width: 800px;">
-                Implementación de un sistema de roles granular para staff y clientes, garantizando la seguridad en las transacciones de ventas.
-            </p>
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-7">
+                    <h2 class="fw-bold mb-4">The Challenge</h2>
+                    <p class="text-muted fs-5 mb-4">
+                        Desarrollar una arquitectura escalable que maneje la concurrencia en la venta de entradas, garantizando la integridad de los datos entre múltiples aplicaciones interconectadas (películas, funciones, ventas, usuarios).
+                    </p>
+                    <div class="challenge-box">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <svg width="24" height="24" class="text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h6 class="mb-0 fw-bold">Technical Focus</h6>
+                        </div>
+                        <p class="text-muted mb-0 small">
+                            Implementación de un sistema de control de acceso basado en roles (RBAC) y consultas SQL optimizadas para reportes financieros y gestión de inventario de productos.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="p-4 bg-card rounded-4 border border-white border-opacity-5">
+                        <h6 class="fw-bold mb-4 text-uppercase small">Project Architecture</h6>
+                        <div class="metric-card"><span class="metric-label">Backend Framework</span><span class="metric-value">Django 5.1.7</span></div>
+                        <div class="metric-card"><span class="metric-label">Database</span><span class="metric-value">MySQL</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-dark">
+        <div class="container">
+            <h2 class="fw-bold mb-5">Key Features</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h5 class="fw-bold">Automated Scheduling</h5>
+                        <p class="text-muted small">Lógica inteligente para el cálculo de horarios y duraciones, evitando solapamientos en las salas disponibles.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h5 class="fw-bold">TMDb API Integration</h5>
+                        <p class="text-muted small">Sincronización con bases de datos externas para enriquecer el catálogo con metadatos, sinopsis y pósters oficiales.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h5 class="fw-bold">Promotion Engine</h5>
+                        <p class="text-muted small">Sistema flexible de descuentos porcentuales aplicables por fechas específicas y tipos de funciones seleccionadas.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 002-2h2a2 2 0 002 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 002-2h2a2 2 0 002 2v14a2 2 0 00-2 2h-2a2 2 0 00-2-2z"></path></svg>
+                        </div>
+                        <h5 class="fw-bold">Admin Dashboard</h5>
+                        <p class="text-muted small">Interfaz administrativa centralizada para el monitoreo en tiempo real de ventas, usuarios y rendimiento de películas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="fw-bold mb-5">Screenshots</h2>
+            <div class="row g-4">
+                <div class="col-md-4"><img src="{% static 'images/image1.webp' %}" class="screenshot-img"></div>
+                <div class="col-md-4"><img src="{% static 'images/image2.webp' %}" class="screenshot-img"></div>
+                <div class="col-md-4"><img src="{% static 'images/image3.webp' %}" class="screenshot-img"></div>
+            </div>
         </div>
     </section>
 
