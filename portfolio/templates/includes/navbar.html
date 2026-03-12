@@ -11,23 +11,20 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarMain">
-      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
         <li class="nav-item">
-          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="{% url 'index' %}#about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#stack">Stack</a>
+          <a class="nav-link" href="{% url 'index' %}#stack">Stack</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#proyectos">Projects</a>
+          <a class="nav-link" href="{% url 'index' %}#proyectos">Projects</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contacto">Contact</a>
+          <a class="nav-link" href="{% url 'index' %}#contacto">Contact</a>
         </li>
       </ul>
-      <div class="d-flex align-items-center gap-3">
-        <a href="{% static 'Marcos Cufre curriculum.pdf' %}" class="btn-resume text-decoration-none" target="_blank">Resume</a>
-      </div>
     </div>
   </div>
 </nav>
