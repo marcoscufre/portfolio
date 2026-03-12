@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
 
 :root {
-    --bg-dark: #020617;
+    --bg-dark: #020617; /* Azul muy oscuro de fondo */
     --bg-card: #0f172a;
     --primary: #3b82f6;
     --primary-light: #60a5fa;
-    --secondary: #94a3b8;
+    --secondary: #f8fafc;
     --accent: #10b981;
-    --text-main: #f8fafc;
-    --text-muted: #cbd5e1;
+    --text-main: #ffffff; /* Blanco puro para títulos */
+    --text-muted: #f1f5f9; /* Blanco/Gris muy claro para párrafos (legible) */
     --glass-bg: rgba(15, 23, 42, 0.7);
     --glass-border: rgba(255, 255, 255, 0.1);
 }
@@ -21,7 +21,7 @@
 
 body {
     background-color: var(--bg-dark);
-    color: var(--text-main);
+    color: var(--text-muted);
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
@@ -38,9 +38,7 @@ body {
 .navbar-brand {
     font-weight: 800;
     letter-spacing: -0.5px;
-    background: linear-gradient(to right, #fff, #cbd5e1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffffff !important;
 }
 
 .brand-icon {
@@ -103,6 +101,7 @@ body {
     letter-spacing: -2px;
     line-height: 1.1;
     margin-bottom: 1.5rem;
+    color: #ffffff;
 }
 
 .hero-subtitle {
@@ -138,7 +137,7 @@ body {
 .yellow { background: #ffbd2e; }
 .green { background: #27c93f; }
 
-.code-content { color: #cbd5e1; }
+.code-content { color: var(--text-muted); }
 .keyword { color: #c678dd; }
 .class-name { color: #e5c07b; }
 .function { color: #61afef; }
@@ -147,36 +146,6 @@ body {
 .comment { color: #5c6370; font-style: italic; }
 
 /* About Section */
-.about-image-container {
-    position: relative;
-    border-radius: 24px;
-    overflow: hidden;
-}
-
-.exp-badge {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background: var(--glass-bg);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--glass-border);
-    padding: 15px 25px;
-    border-radius: 16px;
-}
-
-.exp-number {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--text-main);
-}
-
-.exp-text {
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
 .pilar-card {
     background: var(--bg-card);
     border: 1px solid var(--glass-border);
@@ -364,36 +333,15 @@ body {
     padding: 25px;
     border-radius: 16px;
     height: 100%;
-    transition: all 0.3s ease;
 }
 
-.feature-card:hover {
-    border-color: var(--primary-light);
-    transform: translateY(-5px);
-}
-
-.feature-icon {
-    width: 48px;
-    height: 48px;
-    background: rgba(59, 130, 246, 0.1);
-    color: var(--primary-light);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-}
+.feature-card h5 { color: #ffffff; }
 
 .screenshot-img {
     width: 100%;
     border-radius: 16px;
     border: 1px solid var(--glass-border);
     transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-.screenshot-img:hover {
-    transform: scale(1.02);
 }
 
 .project-nav {
@@ -407,11 +355,6 @@ body {
     gap: 15px;
     text-decoration: none;
     color: var(--text-muted);
-    transition: color 0.3s;
-}
-
-.nav-item-project:hover {
-    color: var(--primary-light);
 }
 
 /* Tech color unification - blue filter for icons */
@@ -424,6 +367,11 @@ body {
     color: var(--primary-light);
     width: 32px;
     height: 32px;
+}
+
+/* Remove separate backgrounds for sections */
+section.bg-dark, body.bg-dark {
+    background-color: var(--bg-dark) !important;
 }
 
 @media (max-width: 768px) {
