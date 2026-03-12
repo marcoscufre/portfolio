@@ -8,7 +8,7 @@
     --secondary: #f8fafc;
     --accent: #10b981;
     --text-main: #ffffff; /* Blanco puro para títulos */
-    --text-muted: #f1f5f9; /* Blanco/Gris muy claro para párrafos (legible) */
+    --text-muted: #ffffff; /* Blanco puro para párrafos para máxima legibilidad */
     --glass-bg: rgba(15, 23, 42, 0.7);
     --glass-border: rgba(255, 255, 255, 0.1);
 }
@@ -25,6 +25,10 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+p, .text-muted {
+    color: var(--text-muted) !important;
 }
 
 /* Navbar Custom */

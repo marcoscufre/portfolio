@@ -13,6 +13,10 @@ body {
     line-height: 1.6;
 }
 
+p, .text-muted {
+    color: #F1F5F9 !important;
+}
+
 /* Navbar */
 .navbar {
     background-color: #1E293B; /* Gris oscuro */
