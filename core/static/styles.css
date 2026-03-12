@@ -8,7 +8,7 @@
     --secondary: #94a3b8;
     --accent: #10b981;
     --text-main: #f8fafc;
-    --text-muted: #94a3b8;
+    --text-muted: #cbd5e1;
     --glass-bg: rgba(15, 23, 42, 0.7);
     --glass-border: rgba(255, 255, 255, 0.1);
 }
@@ -38,9 +38,25 @@ body {
 .navbar-brand {
     font-weight: 800;
     letter-spacing: -0.5px;
-    background: linear-gradient(to right, #fff, #94a3b8);
+    background: linear-gradient(to right, #fff, #cbd5e1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.brand-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    border-radius: 6px;
+    padding: 3px;
+    width: 28px;
+    height: 28px;
+}
+
+.brand-icon svg {
+    width: 20px;
+    height: 20px;
 }
 
 .nav-link {
@@ -52,22 +68,6 @@ body {
 
 .nav-link:hover {
     color: var(--primary-light) !important;
-}
-
-.btn-resume {
-    background: var(--primary);
-    color: white !important;
-    border-radius: 8px;
-    padding: 0.5rem 1.25rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border: none;
-}
-
-.btn-resume:hover {
-    background: var(--primary-light);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
 }
 
 /* Hero Section */
@@ -138,7 +138,7 @@ body {
 .yellow { background: #ffbd2e; }
 .green { background: #27c93f; }
 
-.code-content { color: #94a3b8; }
+.code-content { color: #cbd5e1; }
 .keyword { color: #c678dd; }
 .class-name { color: #e5c07b; }
 .function { color: #61afef; }
@@ -257,18 +257,6 @@ body {
     transform: scale(1.05);
 }
 
-.badge-live {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: var(--primary);
-    color: white;
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 0.7rem;
-    font-weight: 700;
-}
-
 .project-body {
     padding: 25px;
 }
@@ -289,7 +277,7 @@ body {
     border: 1px solid var(--glass-border);
 }
 
-/* Footer / Contact */
+/* Contact */
 .contact-section {
     padding: 100px 0;
     text-align: center;
@@ -424,6 +412,18 @@ body {
 
 .nav-item-project:hover {
     color: var(--primary-light);
+}
+
+/* Tech color unification - blue filter for icons */
+.tech-icon-wrapper img {
+    filter: invert(41%) sepia(91%) rotate(189deg) brightness(100%) contrast(105%);
+    width: 32px;
+}
+
+.tech-icon-wrapper svg {
+    color: var(--primary-light);
+    width: 32px;
+    height: 32px;
 }
 
 @media (max-width: 768px) {
