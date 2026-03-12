@@ -367,10 +367,18 @@ p, .text-muted {
     width: 32px;
 }
 
+.original-colors .tech-icon-wrapper img {
+    filter: none;
+}
+
 .tech-icon-wrapper svg {
     color: var(--primary-light);
     width: 32px;
     height: 32px;
+}
+
+.original-colors .tech-icon-wrapper svg {
+    color: inherit;
 }
 
 /* Remove separate backgrounds for sections */
