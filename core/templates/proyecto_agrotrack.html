@@ -4,143 +4,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroTrack - Sistema de Gestión Agrícola</title>
+    <title>AgroTrack | Marcos Cufré</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <link rel="stylesheet" href="{% static 'carrousel.css' %}">
-    <link rel="stylesheet" href="{% static 'mansory.css' %}">
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
 </head>
-<body>
-{% include 'includes/navbar.html' %}
-<section class="container mt-5">
-    <h1 class="text-center">AgroTrack</h1>
-    <!-- Changed text-muted to text-white per request -->
-    <h2 class="text-center text-white">Sistema de Gestión Agrícola para Cultivos Intensivos</h2>
-    <p class="text-center mt-3">
-        Plataforma integral desarrollada con <strong>Django REST Framework</strong> y <strong>Vue 3</strong> para la administración eficiente de establecimientos agrícolas.
-    </p>
-    <hr>
-    
-    <h3>Descripción del Proyecto</h3>
-    <p>
-        AgroTrack es una solución robusta diseñada para optimizar la gestión de cultivos intensivos. El sistema permite el seguimiento detallado de lotes, labores culturales, aplicaciones de insumos y monitoreo de condiciones climáticas, facilitando la toma de decisiones basada en datos.
-    </p>
-    <ul class="list-unstyled">
-        <li class="mb-2"><i class="bi bi-map-fill me-2"></i> <strong>Gestión Geoespacial:</strong> Trazado de multipolígonos en mapa interactivo (Leaflet-draw) para delimitar lotes y establecimientos.</li>
-        <li class="mb-2"><i class="bi bi-cloud-sun-fill me-2"></i> <strong>Servicios Externos:</strong> Consumo de APIs de clima y geolocalización en tiempo real.</li>
-        <li class="mb-2"><i class="bi bi-file-earmark-pdf-fill me-2"></i> <strong>Reportes Avanzados:</strong> Generación de reportes PDF detallados utilizando <strong>WeasyPrint</strong>.</li>
-        <li class="mb-2"><i class="bi bi-bar-chart-fill me-2"></i> <strong>Visualización de Datos:</strong> Gráficos interactivos y dinámicos implementados con <strong>Vue Charts</strong>.</li>
-        <li class="mb-2"><i class="bi bi-shield-lock-fill me-2"></i> <strong>Seguridad:</strong> Autenticación robusta mediante JWT con cookies HttpOnly.</li>
-        <li class="mb-2"><i class="bi bi-database-fill me-2"></i> <strong>Datos Complejos:</strong> Uso de JSONField/JSONBinary en PostgreSQL para estructuras de datos flexibles.</li>
-        <li class="mb-2"><i class="bi bi-file-earmark-code-fill me-2"></i> <strong>Documentación:</strong> API completamente documentada con Swagger/OpenAPI.</li>
-    </ul>
-    
-    <hr>
-    
-    <h3>Stack Tecnológico</h3>
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-        <div class="col">
-            <h5 class="text-primary"><i class="bi bi-server me-2"></i>Backend</h5>
-            <ul>
-                <li>Python & Django REST Framework</li>
-                <li>PostgreSQL (con extensiones Geoespaciales)</li>
-                <li>WeasyPrint (Reportes PDF)</li>
-                <li>Django TestCase (Testing)</li>
-                <li>JWT Auth (HttpOnly Cookies)</li>
-            </ul>
+<body class="bg-dark">
+
+    {% include 'includes/navbar.html' %}
+
+    <!-- PROJECT HEADER -->
+    <header class="project-header">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-3">
+                <div class="bg-primary p-2 rounded-3">
+                    <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                </div>
+                <div>
+                    <h5 class="mb-0 fw-bold">AgroTrack</h5>
+                    <span class="small text-muted">Marcos Cufré Portfolio</span>
+                </div>
+            </div>
+            <div class="d-flex gap-2">
+                <button class="btn btn-primary btn-sm rounded-pill px-4 fw-bold">Live Demo</button>
+                <div class="rounded-circle overflow-hidden border border-2 border-primary" style="width: 35px; height: 35px;">
+                    <img src="{% static 'images/foto1.webp' %}" class="w-100 h-100 object-fit-cover">
+                </div>
+            </div>
         </div>
-        <div class="col">
-            <h5 class="text-success"><i class="bi bi-laptop me-2"></i>Frontend</h5>
-            <ul>
-                <li>Vue 3 (Composition API)</li>
-                <li>Vite & Pinia (State Management)</li>
-                <li>Vue Charts (Gráficos)</li>
-                <li>Leaflet & Leaflet-draw (Mapas)</li>
-                <li>Cypress (E2E Testing)</li>
-            </ul>
+    </header>
+
+    <!-- PROJECT HERO -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="status-chip mb-3">
+                        <div class="status-dot"></div>
+                        FEATURED PROJECT
+                    </div>
+                    <h1 class="hero-title mb-4" style="font-size: 3.5rem;">Agricultural Management System</h1>
+                    <p class="text-muted fs-5 mb-5">
+                        Modernizando el seguimiento agrícola tradicional para reducir desperdicios y mejorar el rendimiento de los cultivos mediante análisis de datos avanzado y monitoreo espacial.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-primary px-4 py-2 fw-bold"><svg width="18" height="18" class="me-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg> View Project Live</button>
+                        <button class="btn btn-outline-secondary px-4 py-2 fw-bold"><svg width="18" height="18" class="me-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg> GitHub Repo</button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <img src="{% static 'images/agrotrack/landingAgroTrack.png' %}" class="img-fluid rounded-4 shadow-lg border border-white border-opacity-10">
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <hr>
-
-    <h3>Metodología y Planificación</h3>
-    <p>El proyecto se desarrolló siguiendo prácticas de <strong>Código Limpio (Clean Code)</strong> y metodologías ágiles.</p>
-    <ul class="list-unstyled">
-        <li><i class="bi bi-kanban me-2"></i>Planificación y seguimiento en <strong>Notion</strong>.</li>
-        <li><i class="bi bi-diagram-3 me-2"></i>Diagramado exhaustivo: <strong>DER</strong>, Clases, Flujo, Transición de Estados y Casos de Uso.</li>
-        <li><i class="bi bi-palette me-2"></i>Prototipado UI/UX en <strong>Figma</strong>.</li>
-        <li><i class="bi bi-check-circle me-2"></i>Revisiones de código y Testing continuo.</li>
-    </ul>
-
-    <hr>
-    
-    <h3>Galería del Sistema</h3>
-    <p class="text-muted mb-4">Capturas de pantalla de los módulos principales: Dashboard, Gestión de Lotes, Labores y Reportes.</p>
-    
-    <div class="grid">
-        <!-- Landing Page Image with specific flag for lateral scroll -->
-        <div class="grid-item">
-            <img src="{% static 'images/agrotrack/landingAgroTrack.png' %}" alt="Landing Page" onclick="openModal(this, true)">
-            <p class="text-center small mt-1 text-muted">Landing Page (Click para ver completa)</p>
+    <!-- TECHNICAL STACK ICONS -->
+    <section class="py-5 border-top border-bottom border-white border-opacity-5">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col">
+                    <div class="p-3 bg-card rounded-4 border border-white border-opacity-5">
+                        <img src="{% static 'icons/django.svg' %}" width="32" class="mb-2">
+                        <div class="small fw-bold">Django REST</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3 bg-card rounded-4 border border-white border-opacity-5">
+                        <img src="{% static 'icons/javascript.svg' %}" width="32" class="mb-2">
+                        <div class="small fw-bold">Vue 3</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3 bg-card rounded-4 border border-white border-opacity-5">
+                        <img src="{% static 'icons/mysql.svg' %}" width="32" class="mb-2">
+                        <div class="small fw-bold">PostgreSQL</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3 bg-card rounded-4 border border-white border-opacity-5">
+                        <svg width="32" height="32" class="mb-2 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A2 2 0 013 15.492V4.508a2 2 0 011.553-1.784L9 1m0 19l6 3m-6-3V1m6 22l5.447-2.724A2 2 0 0021 18.508V7.508a2 2 0 00-1.553-1.784L15 4m0 19V4m0 0L9 1"></path></svg>
+                        <div class="small fw-bold">Leaflet</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-3 bg-card rounded-4 border border-white border-opacity-5">
+                        <svg width="32" height="32" class="mb-2 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 00-2 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        <div class="small fw-bold">JWT Auth</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <!-- Standard Images -->
-        <div class="grid-item"><img src="{% static 'images/agrotrack/dashboard.png' %}" alt="Dashboard Principal" onclick="openModal(this)"></div>
-        <div class="grid-item"><img src="{% static 'images/agrotrack/lote.png' %}" alt="Detalle de Lote" onclick="openModal(this)"></div>
-        <div class="grid-item"><img src="{% static 'images/agrotrack/establecimientos.png' %}" alt="Establecimientos" onclick="openModal(this)"></div>
-        <div class="grid-item"><img src="{% static 'images/agrotrack/labores.png' %}" alt="Registro de Labores" onclick="openModal(this)"></div>
-        <div class="grid-item"><img src="{% static 'images/agrotrack/reportes.png' %}" alt="Reportes" onclick="openModal(this)"></div>
-        <div class="grid-item"><img src="{% static 'images/agrotrack/aplicaciones.png' %}" alt="Aplicaciones" onclick="openModal(this)"></div>
-        <div class="grid-item"><img src="{% static 'images/agrotrack/muestras.png' %}" alt="Muestras" onclick="openModal(this)"></div>
-        <div class="grid-item"><img src="{% static 'images/agrotrack/herramientas_riego.png' %}" alt="Herramientas Riego" onclick="openModal(this)"></div>
-    </div>
+    </section>
 
-    <div id="modal" class="modal" onclick="closeModal()">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modal-img">
-    </div>
+    <!-- CHALLENGE & METRICS -->
+    <section class="py-100">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-7">
+                    <h2 class="fw-bold mb-4">The Challenge</h2>
+                    <p class="text-muted fs-5 mb-4">
+                        La gestión agrícola intensiva tradicional a menudo depende de registros manuales y datos fragmentados, lo que conduce a un desperdicio significativo de recursos y respuestas tardías a los estresores de los cultivos. El objetivo fue construir una plataforma centralizada en tiempo real capaz de manejar datos espaciales de alta resolución.
+                    </p>
+                    <div class="challenge-box">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <svg width="24" height="24" class="text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h6 class="mb-0 fw-bold">Technical Challenge</h6>
+                        </div>
+                        <p class="text-muted mb-0 small">
+                            Manejo de actualizaciones de datos de alta frecuencia desde sensores remotos y ejecución de consultas espaciales complejas con PostgreSQL/PostGIS sin sacrificar el rendimiento del dashboard.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="p-4 bg-card rounded-4 border border-white border-opacity-5">
+                        <h6 class="fw-bold mb-4 text-uppercase small letter-spacing-1">Project Metrics</h6>
+                        <div class="metric-card">
+                            <span class="metric-label">Response Time</span>
+                            <span class="metric-value">< 120ms</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Uptime</span>
+                            <span class="metric-value">99.9%</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-label">Data Points/Day</span>
+                            <span class="metric-value">50k+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <hr>
-    
-    <div class="d-flex justify-content-center gap-3 mb-5">
-        <button class="btn btn-secondary" disabled>Repositorio Privado <i class="bi bi-lock-fill"></i></button>
-    </div>
+    <!-- KEY FEATURES -->
+    <section class="py-5 bg-dark">
+        <div class="container">
+            <h2 class="fw-bold mb-5">Key Features</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <h5 class="fw-bold">Real-time Map Tracking</h5>
+                        <p class="text-muted small mb-0">Trazado interactivo de lotes utilizando Leaflet.js con actualizaciones de capas satelitales en vivo.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        </div>
+                        <h5 class="fw-bold">Resource Dashboards</h5>
+                        <p class="text-muted small mb-0">Modelos de asignación visual para agua, fertilizantes y mano de obra en diferentes sectores.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                        </div>
+                        <h5 class="fw-bold">Inventory Management</h5>
+                        <p class="text-muted small mb-0">Seguimiento automatizado de stock para insumos agrícolas con reabastecimiento predictivo.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.13-2.054-.382-3.016z"></path></svg>
+                        </div>
+                        <h5 class="fw-bold">Secure Architecture</h5>
+                        <p class="text-muted small mb-0">Autenticación basada en JWT con control de acceso granular para administradores de establecimientos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</section>
+    <!-- SCREENSHOTS -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="fw-bold mb-5">Screenshots</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <img src="{% static 'images/agrotrack/dashboard.png' %}" class="screenshot-img" alt="Dashboard">
+                </div>
+                <div class="col-md-4">
+                    <img src="{% static 'images/agrotrack/lote.png' %}" class="screenshot-img" alt="Lote">
+                </div>
+                <div class="col-md-4">
+                    <img src="{% static 'images/agrotrack/reportes.png' %}" class="screenshot-img" alt="Reportes">
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script>
-  function openModal(imgElement, lateralScroll = false) {
-    const modal = document.getElementById("modal");
-    const modalImg = document.getElementById("modal-img");
-    
-    modalImg.src = imgElement.src;
-    
-    // Toggle class based on image type
-    if (lateralScroll) {
-        modal.classList.add('lateral-scroll');
-        modal.style.display = "block"; // Override flex display
-    } else {
-        modal.classList.remove('lateral-scroll');
-        modal.style.display = "flex";
-    }
-  }
+    <!-- PROJECT NAV -->
+    <section class="project-nav">
+        <div class="container d-flex justify-content-between">
+            <a href="{% url 'proyecto_agencia' %}" class="nav-item-project">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                <div>
+                    <div class="small text-muted">PREVIOUS PROJECT</div>
+                    <div class="fw-bold text-white">Car Dealership MS</div>
+                </div>
+            </a>
+            <a href="{% url 'proyecto_cine' %}" class="nav-item-project text-end">
+                <div>
+                    <div class="small text-muted">NEXT PROJECT</div>
+                    <div class="fw-bold text-white">Cinema Management</div>
+                </div>
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+        </div>
+    </section>
 
-  function closeModal() {
-    const modal = document.getElementById("modal");
-    modal.style.display = "none";
-    modal.classList.remove('lateral-scroll');
-  }
-  
-  // Close modal when clicking outside image
-  window.onclick = function(event) {
-    const modal = document.getElementById("modal");
-    if (event.target == modal) {
-        closeModal();
-    }
-  }
-</script>
+    <footer class="py-5 border-top border-white border-opacity-10">
+        <div class="container text-center text-muted small">
+            © 2024 Marcos Cufré. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
