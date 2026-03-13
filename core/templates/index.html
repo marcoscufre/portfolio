@@ -201,16 +201,28 @@
                 </a>
             </div>
             <div class="contact-form-container">
-                <form method="POST" action="{% url 'index' %}">
+                <form method="POST" action="{% url 'index' %}#contacto" novalidate>
                     {% csrf_token %}
+                    
                     <div class="mb-4 text-start">
                         <label class="small text-muted mb-2 fw-bold text-uppercase">Your Email</label>
-                        <input type="email" name="email" class="form-control" required placeholder="tu@email.com">
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                            <div class="text-danger small mt-1">{{ form.email.errors.0 }}</div>
+                        {% endif %}
                     </div>
+                    
                     <div class="mb-4 text-start">
                         <label class="small text-muted mb-2 fw-bold text-uppercase">Message</label>
-                        <textarea name="message" class="form-control" rows="4" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                        {{ form.message }}
+                        {% if form.message.errors %}
+                            <div class="text-danger small mt-1">{{ form.message.errors.0 }}</div>
+                        {% endif %}
                     </div>
+
+                    <!-- Honeypot oculto -->
+                    {{ form.website }}
+
                     <button type="submit" class="btn btn-primary w-100 py-3 fw-bold rounded-3">Send Message</button>
                     
                     {% if messages %}
