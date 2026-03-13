@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
-from django.core.cache import cache # <--- Usamos la caché nativa de Django
+from django.core.cache import cache
 from smtplib import SMTPException
 from .forms import ContactForm
 
@@ -15,7 +15,6 @@ def index(request):
     
     if request.method == 'POST':
         # --- LÓGICA DE RATE LIMIT MANUAL ---
-        # Obtenemos la IP del usuario
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
         if x_forwarded_for:
             ip = x_forwarded_for.split(',')[0]
@@ -25,7 +24,6 @@ def index(request):
         cache_key = f"contact_limit_{ip}"
         intentos = cache.get(cache_key, 0)
         
-        # Límite: 5 mensajes por cada 5 minutos
         if intentos >= 5:
             messages.error(request, 'Has enviado demasiados mensajes. Por favor, espera unos minutos.')
             return redirect('index')
@@ -40,7 +38,7 @@ def index(request):
             cuerpo = f"Remitente: {email_usuario}\n\nContenido:\n{mensaje_usuario}"
             
             try:
-                # Envío con el timeout configurado en settings.py
+                # Envío con Puerto 465/SSL
                 send_mail(
                     asunto,
                     cuerpo,
@@ -49,9 +47,7 @@ def index(request):
                     fail_silently=False,
                 )
                 
-                # Incrementamos el contador de la IP y le damos una expiración de 5 minutos (300 seg)
                 cache.set(cache_key, intentos + 1, 300)
-                
                 messages.success(request, '¡Mensaje enviado con éxito! Te responderé pronto.')
                 return redirect('index')
 
