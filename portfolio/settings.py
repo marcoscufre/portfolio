@@ -128,16 +128,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 load_dotenv()
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 465 # Puerto para SSL
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = True # Usamos SSL en lugar de TLS
-EMAIL_TIMEOUT = 10 
-
-EMAIL_HOST_USER = 'marcoscufre04@gmail.com'
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# Configuración de Resend API (Reemplaza SMTP)
+RESEND_API_KEY = os.getenv('RESEND_API_KEY')
+DEFAULT_FROM_EMAIL = 'onboarding@resend.dev' 
 
 # Configuración de Logging para producción
 LOGGING = {
