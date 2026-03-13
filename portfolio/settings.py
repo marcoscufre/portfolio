@@ -128,7 +128,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 load_dotenv()
 
-# Configuración de Resend API (Reemplaza SMTP)
+# Configuración de Resend API (Segura via Variables de Entorno)
 RESEND_API_KEY = os.getenv('RESEND_API_KEY')
 DEFAULT_FROM_EMAIL = 'onboarding@resend.dev' 
 
