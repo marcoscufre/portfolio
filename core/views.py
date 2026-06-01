@@ -82,3 +82,7 @@ def proyecto_agencia(request):
 
 def proyecto_agrotrack(request):
     return render(request, 'proyecto_agrotrack.html')
+
+
+def proyecto_logitrack(request):
+    return render(request, 'proyecto_logitrack.html')
