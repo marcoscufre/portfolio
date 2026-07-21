@@ -176,6 +176,12 @@ p, .text-muted {
     padding: 30px;
     border-radius: 16px;
     height: 100%;
+    transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
 }
 
 .tech-list {
