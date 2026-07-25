@@ -23,33 +23,62 @@
   display: none;
   position: fixed;
   z-index: 999;
-  padding-top: 60px;
+  padding-top: 20px; /* Reduced padding */
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.9);
+  overflow: auto; /* Allow scrolling if content is huge */
+  background-color: rgba(0,0,0,0.95); /* Darker background */
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .modal-content {
   margin: auto;
   display: block;
   max-width: 90%;
-  max-height: 80vh;
+  max-height: 90vh;
   border-radius: 10px;
+  object-fit: contain; /* Prevent distortion */
+}
+
+/* Specific mode for Landing Page with Lateral Scroll */
+.modal.lateral-scroll {
+    display: block; /* Switch from flex to block to allow scroll */
+    overflow-x: auto; /* Enable horizontal scroll */
+    overflow-y: hidden; /* Hide vertical scroll if fitting to height */
+    text-align: center; /* Center image if smaller than screen */
+    white-space: nowrap;
+    padding-top: 0;
+}
+
+.modal.lateral-scroll .modal-content {
+    max-width: none; /* Allow image to exceed screen width */
+    width: auto;     /* Natural width based on height */
+    height: 95vh;    /* Fit to screen height */
+    margin: 2.5vh auto;
+    display: inline-block;
 }
 
 .close {
-  position: absolute;
+  position: fixed; /* Fixed so it stays visible while scrolling */
   top: 25px;
   right: 40px;
-  color: white;
+  color: #f1f1f1;
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 1001;
+  background: rgba(0,0,0,0.5);
+  padding: 0 10px;
+  border-radius: 5px;
 }
 
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
