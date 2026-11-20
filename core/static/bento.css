@@ -980,3 +980,220 @@ body {
         height: 220px;
     }
 }
+
+/* ==========================================================================
+   SMOOTH SPA PAGE TRANSITION & TOP PROGRESS BAR
+   Keeps Music Player persistent without audio interruption or screen flicker
+   ========================================================================== */
+#page-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--blue-500), var(--cyan-accent));
+    box-shadow: 0 0 10px var(--cyan-glow), 0 0 20px var(--cyan-accent);
+    z-index: 9999;
+    pointer-events: none;
+    transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    opacity: 0;
+}
+
+#page-content {
+    transition: opacity 0.22s ease, transform 0.22s ease;
+    will-change: opacity, transform;
+}
+
+.page-fade-out {
+    opacity: 0 !important;
+    transform: translateY(6px);
+}
+
+.page-fade-in {
+    opacity: 1 !important;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   PROJECT DETAIL PAGE (Inspired by radnaabazar.com/en/projects/cloud-platform)
+   ========================================================================== */
+.project-detail-hero {
+    padding: 3rem 0 2rem;
+}
+
+.breadcrumb-bento {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dim);
+    font-size: 0.82rem;
+    margin-bottom: 1.5rem;
+}
+
+.breadcrumb-bento a {
+    color: var(--cyan-accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-bento a:hover {
+    color: #ffffff;
+}
+
+.project-detail-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+/* Quick Stats Row (Radnaabazar signature) */
+.project-stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.25rem;
+    margin: 2.5rem 0;
+}
+
+.project-stat-card {
+    background: rgba(11, 21, 45, 0.65);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--cosmic-border);
+    border-radius: var(--radius-inner);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.project-stat-card:hover {
+    background: rgba(16, 29, 61, 0.85);
+    border-color: var(--cyan-accent);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+.project-stat-val {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--text-pure);
+    line-height: 1.1;
+}
+
+.project-stat-lbl {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--cyan-accent);
+    margin-top: 4px;
+}
+
+/* Main Visual Media Frame */
+.project-showcase-frame {
+    background: linear-gradient(145deg, rgba(11, 21, 45, 0.9), rgba(7, 14, 30, 0.95));
+    border: 1px solid var(--cosmic-border);
+    border-radius: var(--radius-bento);
+    padding: 12px;
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(59, 130, 246, 0.15);
+    margin: 2.5rem 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-showcase-frame img {
+    width: 100%;
+    border-radius: calc(var(--radius-bento) - 8px);
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-showcase-frame:hover img {
+    transform: scale(1.02);
+}
+
+/* Project Highlights Cards */
+.feature-bento-box {
+    background: var(--cosmic-surface);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--cosmic-border);
+    border-radius: var(--radius-inner);
+    padding: 1.75rem;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.feature-bento-box:hover {
+    background: rgba(16, 29, 61, 0.85);
+    border-color: var(--cosmic-border-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+/* Screenshot Gallery Bento */
+.gallery-bento-item {
+    border-radius: var(--radius-inner);
+    border: 1px solid var(--cosmic-border);
+    overflow: hidden;
+    background: #020617;
+    transition: all 0.35s ease;
+}
+
+.gallery-bento-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-bento-item:hover {
+    border-color: var(--cyan-accent);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+.gallery-bento-item:hover img {
+    transform: scale(1.06);
+}
+
+/* Project Navigation Bar */
+.project-nav-bar {
+    background: var(--cosmic-surface);
+    border: 1px solid var(--cosmic-border);
+    border-radius: var(--radius-bento);
+    padding: 1.5rem 2rem;
+    margin: 4rem 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    backdrop-filter: blur(16px);
+}
+
+.project-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-nav-btn:hover {
+    color: #ffffff;
+    background: rgba(56, 189, 248, 0.15);
+    border-color: var(--cyan-accent);
+    transform: translateY(-2px);
+}

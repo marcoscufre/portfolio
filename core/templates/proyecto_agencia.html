@@ -4,145 +4,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Herrera Automotores | Marcos Cufr&eacute;</title>
+    <title>Herrera Automotores | Case Study · Marcos Cufré</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'bento.css' %}">
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
 </head>
-<body class="bg-dark">
+<body>
 
     {% include 'includes/navbar.html' %}
 
-    <header class="project-header">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center gap-3">
-                <a href="{% url 'index' %}#proyectos" class="back-link me-2">
-                    &larr; Volver
-                </a>
-                <div class="brand-icon me-1">
-                    <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99z"></path></svg>
-                </div>
-                <div>
-                    <h5 class="mb-0 fw-bold text-main">Herrera Automotores</h5>
-                    <span class="small text-muted">Plataforma de Gestión de Concesionarias</span>
-                </div>
-            </div>
-            {% include 'includes/profile_avatar.html' %}
-        </div>
-    </header>
-
-    <section class="project-hero">
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                    <div class="status-chip mb-3">
-                        <div class="status-dot"></div>
-                        APP DE ESCRITORIO FULLSTACK
+    <main id="page-content">
+        <!-- PROJECT HERO SECTION -->
+        <section class="project-detail-hero">
+            <div class="bento-container">
+                
+                <!-- Breadcrumb & Back Link -->
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div class="breadcrumb-bento">
+                        <a href="{% url 'index' %}">Inicio</a>
+                        <span>/</span>
+                        <a href="{% url 'index' %}#proyectos">Proyectos</a>
+                        <span>/</span>
+                        <span class="text-white">Herrera Automotores</span>
                     </div>
-                    <h1 class="hero-title mb-4" style="font-size: 3.5rem;">Sistema integral para gesti&oacute;n de concesionarias</h1>
-                    <p class="text-muted fs-5 mb-5">
-                        Plataforma operativa para administrar inventario, clientes, empleados, documentaci&oacute;n y ventas de veh&iacute;culos desde una experiencia de escritorio construida sobre servicios web desacoplados.
+                    <a href="{% url 'index' %}#proyectos" class="btn-glass-subtle py-1 px-3" style="font-size: 0.8rem;">
+                        &larr; Volver a Proyectos
+                    </a>
+                </div>
+
+                <!-- Title & Header -->
+                <div class="mb-4">
+                    <div class="badge-status mb-3">
+                        <span class="pulse-indicator"></span>
+                        DEALER MANAGEMENT SYSTEM &amp; CRM · CASE STUDY
+                    </div>
+                    <h1 class="project-detail-title">
+                        Herrera Automotores — <span class="bento-gradient-text">Dealer Management System</span>
+                    </h1>
+                    <p class="bento-desc fs-5" style="max-width: 850px;">
+                        Plataforma integral para concesionarias de automotores que centraliza el stock de vehículos, seguimiento de clientes (CRM), liquidación de comisiones de venta y control de trámites de gestoría y transferencias.
                     </p>
-                    <div class="d-flex gap-3">
-                        <button class="btn btn-outline-secondary px-4 py-2 fw-bold" type="button" disabled><svg width="18" height="18" class="me-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg> Repo Privado</button>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="project-hero-img-container">
-                        <img src="{% static 'images/DASHBOARD.webp' %}" alt="Dashboard de Herrera Automotores">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="py-5 border-top border-bottom border-white border-opacity-5">
-        <div class="container">
-            <div class="row g-4 text-center">
-                <div class="col">
-                    <div class="tech-icon-wrapper">
-                        <svg role="img" viewBox="0 0 24 24" fill="currentColor"><title>Django</title><path d="M11.146 0h3.924v18.166c-2.013.382-3.491.535-5.096.535-4.791 0-7.288-2.166-7.288-6.32 0-4.002 2.65-6.6 6.753-6.6.637 0 1.121.05 1.707.203zm0 9.143a3.894 3.894 0 00-1.325-.204c-1.988 0-3.134 1.223-3.134 3.365 0 2.09 1.096 3.236 3.109 3.236.433 0 .79-.025 1.35-.102V9.142zM21.314 6.06v9.098c0 3.134-.229 4.638-.917 5.937-.637 1.249-1.478 2.039-3.211 2.905l-3.644-1.733c1.733-.815 2.574-1.53 3.109-2.625.561-1.121.739-2.421.739-5.835V6.059h3.924zM17.39.021h3.924v4.026H17.39z"/></svg>
-                        <div class="small fw-bold mt-2 text-main">Django REST</div>
+                    <!-- Action Links -->
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <span class="btn-glass-subtle opacity-75">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Repositorio Privado (Comercial)
+                        </span>
                     </div>
                 </div>
-                <div class="col"><div class="tech-icon-wrapper"><img src="{% static 'icons/vue-svgrepo-com.svg' %}" alt=""><div class="small fw-bold mt-2 text-main">Vue 3</div></div></div>
-                <div class="col"><div class="tech-icon-wrapper"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg><div class="small fw-bold mt-2 text-main">Vite</div></div></div>
-                <div class="col"><div class="tech-icon-wrapper"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7v10c0 1.1.9 2 2 2h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2zM4 11h16M11 15h.01M7 15h.01"></path></svg><div class="small fw-bold mt-2 text-main">SQLite</div></div></div>
-                <div class="col"><div class="tech-icon-wrapper"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"></path><path d="M8 8h8v8H8z"></path></svg><div class="small fw-bold mt-2 text-main">Electron</div></div></div>
-            </div>
-        </div>
-    </section>
 
-    <section class="py-5">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-7">
-                    <h2 class="fw-bold mb-4 text-main">El Desaf&iacute;o</h2>
-                    <p class="text-muted fs-5 mb-4">
-                        Centralizar procesos que normalmente viven separados: inventario, clientes, ventas, pagos, documentaci&oacute;n vehicular y permisos internos. El objetivo fue mantener una interfaz clara para uso diario sin sacrificar consistencia de datos.
-                    </p>
-                    <div class="challenge-box">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <svg width="24" height="24" class="text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <h6 class="mb-0 fw-bold text-main">Enfoque T&eacute;cnico</h6>
+                <!-- Quick Stats Row (Inspired by radnaabazar.com) -->
+                <div class="project-stats-row">
+                    <div class="project-stat-card">
+                        <span class="project-stat-val text-cyan">360°</span>
+                        <span class="project-stat-lbl">Control de Stock &amp; Ventas</span>
+                    </div>
+                    <div class="project-stat-card">
+                        <span class="project-stat-val" style="color: #60a5fa;">CRM</span>
+                        <span class="project-stat-lbl">Pipeline de Clientes</span>
+                    </div>
+                    <div class="project-stat-card">
+                        <span class="project-stat-val" style="color: #38bdf8;">Multi-Rol</span>
+                        <span class="project-stat-lbl">Gestoría &amp; Vendedores</span>
+                    </div>
+                    <div class="project-stat-card">
+                        <span class="project-stat-val" style="color: #93c5fd;">Django+Vue</span>
+                        <span class="project-stat-lbl">Arquitectura Desacoplada</span>
+                    </div>
+                </div>
+
+                <!-- Showcase Image Frame -->
+                <div class="project-showcase-frame">
+                    <img src="{% static 'images/DASHBOARD.webp' %}" alt="Dashboard de Herrera Automotores">
+                </div>
+
+                <!-- Overview & Technical Challenge Bento -->
+                <div class="row g-4 my-4">
+                    <div class="col-lg-7">
+                        <div class="bento-card h-100">
+                            <div class="pill-info mb-3">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                                <span>El Desafío Comercial</span>
+                            </div>
+                            <h3 class="fw-bold text-white mb-3">Flujo Operativo de Vehículos y Trámites</h3>
+                            <p class="text-secondary mb-4">
+                                En el rubro automotriz, la venta de una unidad no termina al firmar el contrato: requiere verificar multas, registrar señas, validar la documentación del 08, transferencias en el registro y liquidar comisiones escalonadas a los ejecutivos de cuentas.
+                            </p>
+                            <p class="text-secondary mb-0">
+                                Diseñé un modelo relacional en <strong>Django</strong> con control de estados estricto por máquina de estados finita, complementado con una interfaz reactiva en <strong>Vue 3</strong> para que el equipo comercial acceda al inventario en tiempo real con búsquedas instantáneas y filtros avanzados.
+                            </p>
                         </div>
-                        <p class="text-muted mb-0 small">
-                            Backend modular con apps Django para usuarios, clientes, veh&iacute;culos, ventas y gestor&iacute;a; API REST consumida por Vue; wrapper Electron que inicia y supervisa los servicios locales antes de abrir la ventana principal.
-                        </p>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="bento-card h-100">
+                            <h5 class="fw-bold text-white mb-3">Arquitectura Técnica</h5>
+                            <div class="d-flex flex-column gap-3">
+                                <div class="p-3 rounded-3 border border-white border-opacity-10 bg-dark bg-opacity-40">
+                                    <span class="small text-cyan text-uppercase fw-bold d-block mb-1">Backend &amp; ORM</span>
+                                    <span class="text-white fw-bold">Django REST Framework + Transacciones</span>
+                                </div>
+                                <div class="p-3 rounded-3 border border-white border-opacity-10 bg-dark bg-opacity-40">
+                                    <span class="small text-cyan text-uppercase fw-bold d-block mb-1">Frontend App</span>
+                                    <span class="text-white fw-bold">Vue 3 + Vite + Tailwind UI</span>
+                                </div>
+                                <div class="p-3 rounded-3 border border-white border-opacity-10 bg-dark bg-opacity-40">
+                                    <span class="small text-cyan text-uppercase fw-bold d-block mb-1">Persistencia &amp; Media</span>
+                                    <span class="text-white fw-bold">PostgreSQL / SQLite + WebP Optimization</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-5">
-                    <div class="p-4 bg-card rounded-4 border border-white border-opacity-5">
-                        <h6 class="fw-bold mb-4 text-uppercase small text-main">Arquitectura T&eacute;cnica</h6>
-                        <div class="metric-card"><span class="metric-label">Backend</span><span class="metric-value">Django + DRF</span></div>
-                        <div class="metric-card"><span class="metric-label">Frontend</span><span class="metric-value">Vue 3 + Vite</span></div>
-                        <div class="metric-card"><span class="metric-label">Desktop Shell</span><span class="metric-value">Electron</span></div>
+
+                <!-- Key Capabilities 2x2 Bento Grid -->
+                <div class="my-5">
+                    <h3 class="fw-bold text-white mb-4">Capacidades Clave del Sistema</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="feature-bento-box">
+                                <div class="text-cyan mb-3">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="1" y="3" width="15" height="13"></rect>
+                                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                        <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                        <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                                    </svg>
+                                </div>
+                                <h5 class="fw-bold text-white mb-2">Inventario de Unidades con Ficha Técnica</h5>
+                                <p class="text-secondary small mb-0">
+                                    Control minucioso de cada vehículo: marca, modelo, año, kilometraje, estado de mantenimiento, precio de lista y galería fotográfica.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-bento-box">
+                                <div class="text-cyan mb-3">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                                <h5 class="fw-bold text-white mb-2">CRM &amp; Pipeline de Ventas</h5>
+                                <p class="text-secondary small mb-0">
+                                    Seguimiento de prospectos desde la primera consulta hasta la entrega de la unidad, con historial de cotizaciones, llamadas y notas comerciales.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-bento-box">
+                                <div class="text-cyan mb-3">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="12" y1="18" x2="12" y2="12"></line>
+                                        <line x1="9" y1="15" x2="15" y2="15"></line>
+                                    </svg>
+                                </div>
+                                <h5 class="fw-bold text-white mb-2">Módulo de Gestoría y Transferencias</h5>
+                                <p class="text-secondary small mb-0">
+                                    Checklist digital para verificar verificación policial, formulario 08, libre deuda de patentes e infracciones antes de autorizar la entrega de llaves.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-bento-box">
+                                <div class="text-cyan mb-3">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                    </svg>
+                                </div>
+                                <h5 class="fw-bold text-white mb-2">Comisiones &amp; Roles de Usuario</h5>
+                                <p class="text-secondary small mb-0">
+                                    Cálculo automatizado de porcentajes de comisión por vendedor según rentabilidad de la operación y panel de control para gerencia.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Screenshots Gallery Bento -->
+                <div class="my-5">
+                    <h3 class="fw-bold text-white mb-4">Galería de Pantallas</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="gallery-bento-item">
+                                <img src="{% static 'images/VEHICULOS.webp' %}" alt="Gestión de Vehículos">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="gallery-bento-item">
+                                <img src="{% static 'images/VENTAS.webp' %}" alt="Módulo de Ventas">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="gallery-bento-item">
+                                <img src="{% static 'images/CLIENTES.webp' %}" alt="CRM de Clientes">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="gallery-bento-item">
+                                <img src="{% static 'images/Gestoria-y-tramites.webp' %}" alt="Gestoría y Trámites">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Navigation Bar -->
+                <div class="project-nav-bar">
+                    <a href="{% url 'proyecto_agrotrack' %}" class="project-nav-btn">
+                        &larr; Anterior: AgroTrack
+                    </a>
+                    <a href="{% url 'proyecto_cine' %}" class="project-nav-btn">
+                        Siguiente: Gestión de Cine &rarr;
+                    </a>
+                </div>
+
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="py-5 bg-dark">
-        <div class="container">
-            <h2 class="fw-bold mb-5 text-main">Capacidades Clave</h2>
-            <div class="row g-4">
-                <div class="col-md-6"><div class="feature-card"><div class="feature-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7v10c0 1.1.9 2 2 2h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2zM4 11h16"></path></svg></div><h5 class="fw-bold text-main">Inventario con estados</h5><p class="text-muted small">Control de veh&iacute;culos disponibles, reservados, vendidos, en preparaci&oacute;n o recibidos como parte de pago, con im&aacute;genes y datos comerciales.</p></div></div>
-                <div class="col-md-6"><div class="feature-card"><div class="feature-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg></div><h5 class="fw-bold text-main">CRM y empleados</h5><p class="text-muted small">Gesti&oacute;n de clientes, vendedores y usuarios internos con roles de administrador y staff para separar responsabilidades operativas.</p></div></div>
-                <div class="col-md-6"><div class="feature-card"><div class="feature-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8v8"></path><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div><h5 class="fw-bold text-main">Ventas at&oacute;micas</h5><p class="text-muted small">Registro de operaciones con transacciones, validaci&oacute;n de disponibilidad, pagos mixtos, financiaci&oacute;n y veh&iacute;culos tomados como parte de pago.</p></div></div>
-                <div class="col-md-6"><div class="feature-card"><div class="feature-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6M7 4h10a2 2 0 012 2v14l-7-3-7 3V6a2 2 0 012-2z"></path></svg></div><h5 class="fw-bold text-main">Gestor&iacute;a vehicular</h5><p class="text-muted small">Seguimiento de formularios, VTV, libre deuda, multas, patentes, gestores asignados y observaciones por cada veh&iacute;culo.</p></div></div>
+        <!-- FOOTER -->
+        <footer class="py-5 border-top border-white border-opacity-10 text-center text-muted small">
+            <div class="container">
+                <p class="mb-1 text-white fw-bold">Marcos Cufré &copy; 2026</p>
+                <p class="mb-0 text-dim">Diseñado con inspiración en <a href="https://www.radnaabazar.com/en" target="_blank" class="text-cyan text-decoration-none">radnaabazar.com</a></p>
             </div>
-        </div>
-    </section>
+        </footer>
+    </main>
 
-    <section class="py-5">
-        <div class="container">
-            <h2 class="fw-bold mb-5 text-main">Capturas de Pantalla</h2>
-            <div class="row g-4">
-                <div class="col-md-4"><img src="{% static 'images/LOGIN.webp' %}" class="screenshot-img" alt="Login de Herrera Automotores"></div>
-                <div class="col-md-4"><img src="{% static 'images/DASHBOARD.webp' %}" class="screenshot-img" alt="Dashboard de Herrera Automotores"></div>
-                <div class="col-md-4"><img src="{% static 'images/VEHICULOS.webp' %}" class="screenshot-img" alt="Inventario de vehiculos"></div>
-                <div class="col-md-4"><img src="{% static 'images/CLIENTES.webp' %}" class="screenshot-img" alt="CRM de clientes"></div>
-                <div class="col-md-4"><img src="{% static 'images/VENTAS.webp' %}" class="screenshot-img" alt="Registro de ventas"></div>
-                <div class="col-md-4"><img src="{% static 'images/Gestoria-y-tramites.webp' %}" class="screenshot-img" alt="Gestoria y tramites"></div>
-            </div>
+    <!-- PERSISTENT FLOATING MINI-DOCK -->
+    <div id="mini-music-dock" class="mini-dock">
+        <img id="dock-cover" src="{% static 'images/music/one_piece.webp' %}" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?w=100&auto=format&fit=crop&q=80';" class="mini-dock-cover" alt="Dock Cover">
+        <div class="d-flex flex-column">
+            <span class="mini-dock-title" id="dock-title">UUUUUS! (All of Us)</span>
+            <span class="small text-cyan" id="dock-artist" style="font-size: 0.68rem;">One Piece OST</span>
         </div>
-    </section>
-
-    <!-- NAVEGACIÓN ENTRE PROYECTOS -->
-    <section class="project-nav">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a href="{% url 'proyecto_cine' %}" class="nav-item-project">
-                &larr; Proyecto Anterior: Gestión de Cine
-            </a>
-            <a href="{% url 'index' %}#proyectos" class="nav-item-project">
-                Ver Todos los Proyectos &rarr;
-            </a>
+        <div class="d-flex align-items-center gap-2">
+            <button id="dock-play-btn" class="mini-dock-btn" title="Play / Pause">
+                <svg id="dock-play-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <svg id="dock-pause-icon" class="d-none" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="6" y="4" width="4" height="16"></rect>
+                    <rect x="14" y="4" width="4" height="16"></rect>
+                </svg>
+            </button>
+            <button id="dock-next-btn" class="btn-ctrl p-1 text-white" title="Siguiente canción">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                    <line x1="19" y1="5" x2="19" y2="19"></line>
+                </svg>
+            </button>
         </div>
-    </section>
+    </div>
 
-    <footer class="py-5 border-top border-white border-opacity-10 text-center text-muted small">&copy; 2024 Marcos Cufr&eacute;</footer>
+    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/music-player.js' %}"></script>
+    <script src="{% static 'js/page-router.js' %}"></script>
+    <script src="{% static 'js/portfolio.js' %}"></script>
 </body>
 </html>
-

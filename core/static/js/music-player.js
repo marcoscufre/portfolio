@@ -73,6 +73,21 @@
             this.loadTrack(this.currentIndex, false);
         }
 
+        rebindElements() {
+            this.initElements();
+            this.bindEvents();
+            const track = this.tracks[this.currentIndex];
+            if (this.titleEl) this.titleEl.textContent = track.title;
+            if (this.artistEl) this.artistEl.textContent = `${track.artist} · ${track.subtitle || ''}`;
+            if (this.genreEl) this.genreEl.textContent = track.genre;
+            this.applyCoverImage(this.coverEl, track.cover, track.fallbackCover);
+            this.playlistItems.forEach((el, idx) => {
+                el.classList.toggle("active", idx === this.currentIndex);
+            });
+            this.updateUIPlaying(this.isPlaying);
+            this.updateProgress();
+        }
+
         initElements() {
             // Main Bento Player Elements
             this.titleEl = document.getElementById("player-title");

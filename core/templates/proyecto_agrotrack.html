@@ -4,227 +4,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroTrack | Marcos Cufré</title>
+    <title>AgroTrack | Case Study · Marcos Cufré</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'bento.css' %}">
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
 </head>
-<body class="bg-dark">
+<body>
 
     {% include 'includes/navbar.html' %}
 
-    <header class="project-header">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center gap-3">
-                <a href="{% url 'index' %}#proyectos" class="back-link me-2">
-                    &larr; Volver
-                </a>
-                <div class="brand-icon me-1">
-                    <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                </div>
-                <div>
-                    <h5 class="mb-0 fw-bold text-main">AgroTrack</h5>
-                    <span class="small text-muted">Marcos Cufré Portfolio</span>
-                </div>
-            </div>
-            {% include 'includes/profile_avatar.html' %}
-        </div>
-    </header>
-
-    <section class="project-hero">
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                    <div class="status-chip mb-3">
-                        <div class="status-dot"></div>
-                        PROYECTO DESTACADO
+    <main id="page-content">
+        <!-- PROJECT HERO SECTION -->
+        <section class="project-detail-hero">
+            <div class="bento-container">
+                
+                <!-- Breadcrumb & Back Link -->
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div class="breadcrumb-bento">
+                        <a href="{% url 'index' %}">Inicio</a>
+                        <span>/</span>
+                        <a href="{% url 'index' %}#proyectos">Proyectos</a>
+                        <span>/</span>
+                        <span class="text-white">AgroTrack</span>
                     </div>
-                    <h1 class="hero-title mb-4" style="font-size: 3.5rem;">Sistema de Gestión Agrícola</h1>
-                    <p class="text-muted fs-5 mb-5">
-                        Modernizando el seguimiento agrícola tradicional para reducir desperdicios y mejorar el rendimiento de los cultivos mediante análisis de datos avanzado y monitoreo espacial.
+                    <a href="{% url 'index' %}#proyectos" class="btn-glass-subtle py-1 px-3" style="font-size: 0.8rem;">
+                        &larr; Volver a Proyectos
+                    </a>
+                </div>
+
+                <!-- Title & Header -->
+                <div class="mb-4">
+                    <div class="badge-status mb-3">
+                        <span class="pulse-indicator"></span>
+                        SOLUCIÓN AGTECH &amp; GIS · CASE STUDY
+                    </div>
+                    <h1 class="project-detail-title">
+                        AgroTrack — <span class="bento-gradient-text">Sistema de Gestión Agrícola</span>
+                    </h1>
+                    <p class="bento-desc fs-5" style="max-width: 850px;">
+                        Plataforma full-stack que moderniza la administración de establecimientos agropecuarios, controlando el ciclo de vida de cultivos, aplicaciones de insumos fitosanitarios, lotes espaciales y reportes de certificación.
                     </p>
-                    <div class="d-flex gap-3">
-                        <button class="btn btn-outline-secondary px-4 py-2 fw-bold" disabled><svg width="18" height="18" class="me-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg> Repo Privado</button>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="project-hero-img-container">
-                        <img src="{% static 'images/agrotrack/landingAgroTrack.png' %}" alt="AgroTrack landing preview">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="py-5 border-top border-bottom border-white border-opacity-5">
-        <div class="container">
-            <div class="row g-4 text-center">
-                <div class="col">
-                    <div class="tech-icon-wrapper">
-                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>Django</title><path d="M11.146 0h3.924v18.166c-2.013.382-3.491.535-5.096.535-4.791 0-7.288-2.166-7.288-6.32 0-4.002 2.65-6.6 6.753-6.6.637 0 1.121.05 1.707.203zm0 9.143a3.894 3.894 0 00-1.325-.204c-1.988 0-3.134 1.223-3.134 3.365 0 2.09 1.096 3.236 3.109 3.236.433 0 .79-.025 1.35-.102V9.142zM21.314 6.06v9.098c0 3.134-.229 4.638-.917 5.937-.637 1.249-1.478 2.039-3.211 2.905l-3.644-1.733c1.733-.815 2.574-1.53 3.109-2.625.561-1.121.739-2.421.739-5.835V6.059h3.924zM17.39.021h3.924v4.026H17.39z"/></svg>
-                        <div class="small fw-bold mt-2 text-main">Django REST</div>
+                    <!-- Action Links -->
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <span class="btn-glass-subtle opacity-75">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Repositorio Privado (Bajo NDA)
+                        </span>
                     </div>
                 </div>
-                <div class="col"><div class="tech-icon-wrapper"><img src="{% static 'icons/vue-svgrepo-com.svg' %}"><div class="small fw-bold mt-2 text-main">Vue 3</div></div></div>
-                <div class="col"><div class="tech-icon-wrapper"><img src="{% static 'icons/postgresql-svgrepo-com.svg' %}"><div class="small fw-bold mt-2 text-main">PostgreSQL</div></div></div>
-                <div class="col"><div class="tech-icon-wrapper">
-                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A2 2 0 013 15.492V4.508a2 2 0 011.553-1.784L9 1m0 19l6 3m-6-3V1m6 22l5.447-2.724A2 2 0 0021 18.508V7.508a2 2 0 00-1.553-1.784L15 4m0 19V4m0 0L9 1"></path></svg><div class="small fw-bold mt-2 text-main">Leaflet</div></div></div>
-                <div class="col"><div class="tech-icon-wrapper"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 00-2 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg><div class="small fw-bold mt-2 text-main">JWT Auth</div></div></div>
-            </div>
-        </div>
-    </section>
 
-    <section class="py-5">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-7">
-                    <h2 class="fw-bold mb-4 text-main">El Desafío</h2>
-                    <p class="text-muted fs-5 mb-4">
-                        La gestión agrícola intensiva tradicional a menudo depende de registros manuales y datos fragmentados, lo que conduce a un desperdicio significativo de recursos y respuestas tardías a los estresores de los cultivos.
-                    </p>
-                    <div class="challenge-box mb-4">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <svg width="24" height="24" class="text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <h6 class="mb-0 fw-bold text-main">La Solución</h6>
+                <!-- Quick Stats Row (Inspired by radnaabazar.com) -->
+                <div class="project-stats-row">
+                    <div class="project-stat-card">
+                        <span class="project-stat-val text-cyan">GlobalGAP</span>
+                        <span class="project-stat-lbl">Trazabilidad Agrícola</span>
+                    </div>
+                    <div class="project-stat-card">
+                        <span class="project-stat-val" style="color: #60a5fa;">PostGIS</span>
+                        <span class="project-stat-lbl">Lotes Georreferenciados</span>
+                    </div>
+                    <div class="project-stat-card">
+                        <span class="project-stat-val" style="color: #38bdf8;">100%</span>
+                        <span class="project-stat-lbl">Control de Carencias</span>
+                    </div>
+                    <div class="project-stat-card">
+                        <span class="project-stat-val" style="color: #93c5fd;">SPA + API</span>
+                        <span class="project-stat-lbl">Vue 3 + DRF Core</span>
+                    </div>
+                </div>
+
+                <!-- Showcase Image Frame -->
+                <div class="project-showcase-frame">
+                    <img src="{% static 'images/agrotrack/landingAgroTrack.png' %}" alt="AgroTrack Landing Preview">
+                </div>
+
+                <!-- Overview & Technical Challenge Bento -->
+                <div class="row g-4 my-4">
+                    <div class="col-lg-7">
+                        <div class="bento-card h-100">
+                            <div class="pill-info mb-3">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                                <span>El Desafío del Sector</span>
+                            </div>
+                            <h3 class="fw-bold text-white mb-3">Trazabilidad Precisa y Manejo de Lotes</h3>
+                            <p class="text-secondary mb-4">
+                                La gestión agrícola tradicional depende frecuentemente de anotaciones en papel o planillas desactualizadas, provocando errores en las dosis de aplicación, vencimiento de periodos de carencia y dificultades para certificar cosechas bajo normas de exportación.
+                            </p>
+                            <p class="text-secondary mb-0">
+                                Con AgroTrack desarrollé una API robusta en <strong>Django REST Framework</strong> respaldada por PostgreSQL, combinada con una Single Page Application reactiva en <strong>Vue 3</strong> que permite a los agrónomos delimitar lotes, registrar labores de siembra y monitorear el stock de insumos en tiempo real.
+                            </p>
                         </div>
-                        <p class="text-muted mb-0 small">
-                            AgroTrack unifica la gestión mediante una SPA en Vue 3 móvil y una API Django. Automatiza la trazabilidad fitosanitaria (GlobalGAP), calcula periodos de carencia de productos y genera reportes de calidad en PDF descargables.
-                        </p>
                     </div>
-                    <div class="challenge-box">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <svg width="24" height="24" class="text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <h6 class="mb-0 fw-bold text-main">Enfoque Técnico</h6>
+
+                    <div class="col-lg-5">
+                        <div class="bento-card h-100">
+                            <h5 class="fw-bold text-white mb-3">Arquitectura Técnica</h5>
+                            <div class="d-flex flex-column gap-3">
+                                <div class="p-3 rounded-3 border border-white border-opacity-10 bg-dark bg-opacity-40">
+                                    <span class="small text-cyan text-uppercase fw-bold d-block mb-1">Backend REST</span>
+                                    <span class="text-white fw-bold">Django REST Framework + JWT Auth</span>
+                                </div>
+                                <div class="p-3 rounded-3 border border-white border-opacity-10 bg-dark bg-opacity-40">
+                                    <span class="small text-cyan text-uppercase fw-bold d-block mb-1">Base de Datos</span>
+                                    <span class="text-white fw-bold">PostgreSQL con Índices Espaciales</span>
+                                </div>
+                                <div class="p-3 rounded-3 border border-white border-opacity-10 bg-dark bg-opacity-40">
+                                    <span class="small text-cyan text-uppercase fw-bold d-block mb-1">Frontend Reactivo</span>
+                                    <span class="text-white fw-bold">Vue 3 + Vite + Leaflet Maps</span>
+                                </div>
+                            </div>
                         </div>
-                        <p class="text-muted mb-0 small">
-                            Manejo de actualizaciones de datos de alta frecuencia y ejecución de consultas espaciales complejas con PostgreSQL/PostGIS.
-                        </p>
                     </div>
                 </div>
-                <div class="col-lg-5">
-                    <div class="p-4 bg-card rounded-4 border border-white border-opacity-5">
-                        <h6 class="fw-bold mb-4 text-uppercase small text-main">Arquitectura Técnica</h6>
-                        <div class="metric-card"><span class="metric-label">Backend</span><span class="metric-value">Django REST Framework</span></div>
-                        <div class="metric-card"><span class="metric-label">Frontend</span><span class="metric-value">Vue 3 + Vite + Pinia</span></div>
-                        <div class="metric-card"><span class="metric-label">Base de Datos</span><span class="metric-value">PostgreSQL + PostGIS</span></div>
+
+                <!-- Key Capabilities 2x2 Bento Grid -->
+                <div class="my-5">
+                    <h3 class="fw-bold text-white mb-4">Capacidades Clave del Sistema</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="feature-bento-box">
+                                <div class="text-cyan mb-3">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </div>
+                                <h5 class="fw-bold text-white mb-2">Mapeo y Delimitación de Lotes</h5>
+                                <p class="text-secondary small mb-0">
+                                    Integración de capas vectoriales con Leaflet para visualizar parcelas, superficie en hectáreas y estado del cultivo según rotación estacional.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-bento-box">
+                                <div class="text-cyan mb-3">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                    </svg>
+                                </div>
+                                <h5 class="fw-bold text-white mb-2">Cálculo de Periodos de Carencia</h5>
+                                <p class="text-secondary small mb-0">
+                                    Algoritmo que calcula automáticamente la fecha segura de cosecha tras cada aplicación química, previniendo la contaminación de productos y garantizando inocuidad alimentaria.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-bento-box">
+                                <div class="text-cyan mb-3">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                                    </svg>
+                                </div>
+                                <h5 class="fw-bold text-white mb-2">Control de Stock e Insumos</h5>
+                                <p class="text-secondary small mb-0">
+                                    Módulo de depósitos con descuento automático de fitosanitarios, semillas y fertilizantes conforme se asientan las órdenes de trabajo en el campo.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-bento-box">
+                                <div class="text-cyan mb-3">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    </svg>
+                                </div>
+                                <h5 class="fw-bold text-white mb-2">Reportes Auditables en PDF</h5>
+                                <p class="text-secondary small mb-0">
+                                    Generación de informes de trazabilidad por lote y campaña para presentar ante organismos de control de sanidad y clientes agroexportadores.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Screenshots Gallery Bento -->
+                <div class="my-5">
+                    <h3 class="fw-bold text-white mb-4">Galería de Pantallas</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="gallery-bento-item">
+                                <img src="{% static 'images/agrotrack/dashboard.png' %}" alt="Dashboard AgroTrack">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="gallery-bento-item">
+                                <img src="{% static 'images/agrotrack/aplicaciones.png' %}" alt="Registro de Aplicaciones">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="gallery-bento-item">
+                                <img src="{% static 'images/agrotrack/lote.png' %}" alt="Gestión de Lotes">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="gallery-bento-item">
+                                <img src="{% static 'images/agrotrack/reportes.png' %}" alt="Reportes de Campaña">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Navigation Bar -->
+                <div class="project-nav-bar">
+                    <a href="{% url 'proyecto_logitrack' %}" class="project-nav-btn">
+                        &larr; Anterior: LogiTrack
+                    </a>
+                    <a href="{% url 'proyecto_agencia' %}" class="project-nav-btn">
+                        Siguiente: Herrera Automotores &rarr;
+                    </a>
+                </div>
+
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SECCIÓN HORIZONTAL DE RESULTADOS E IMPACTO -->
-    <section class="py-5 border-top border-bottom border-white border-opacity-5 bg-card">
-        <div class="container">
-            <h3 class="fw-bold mb-5 text-center text-main">Resultados e Impacto</h3>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="p-4 rounded-4 border border-white border-opacity-5 bg-dark h-100">
-                        <span class="metric-value fs-2 fw-bold text-primary mb-2 d-block">100%</span>
-                        <span class="metric-label text-uppercase small text-muted d-block mb-3" style="letter-spacing: 1px;">Trazabilidad</span>
-                        <p class="text-muted small mb-0">Actividades, labores y aplicaciones fitosanitarias digitalizadas y georreferenciadas bajo estándares GlobalGAP.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-4 rounded-4 border border-white border-opacity-5 bg-dark h-100">
-                        <span class="metric-value fs-2 fw-bold text-primary mb-2 d-block">Instantánea</span>
-                        <span class="metric-label text-uppercase small text-muted d-block mb-3" style="letter-spacing: 1px;">Reportes de Calidad</span>
-                        <p class="text-muted small mb-0">Generación automática de certificados de muestras en PDF vía WeasyPrint listos para auditoría de calidad.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-4 rounded-4 border border-white border-opacity-5 bg-dark h-100">
-                        <span class="metric-value fs-2 fw-bold text-primary mb-2 d-block">Paramétrica</span>
-                        <span class="metric-label text-uppercase small text-muted d-block mb-3" style="letter-spacing: 1px;">Control de Calidad</span>
-                        <p class="text-muted small mb-0">Clasificación automatizada y objetiva de cosechas basada en parámetros específicos de cada cultivo.</p>
-                    </div>
-                </div>
+        <!-- FOOTER -->
+        <footer class="py-5 border-top border-white border-opacity-10 text-center text-muted small">
+            <div class="container">
+                <p class="mb-1 text-white fw-bold">Marcos Cufré &copy; 2026</p>
+                <p class="mb-0 text-dim">Diseñado con inspiración en <a href="https://www.radnaabazar.com/en" target="_blank" class="text-cyan text-decoration-none">radnaabazar.com</a></p>
             </div>
-        </div>
-    </section>
+        </footer>
+    </main>
 
-    <section class="py-5 bg-dark">
-        <div class="container">
-            <h2 class="fw-bold mb-5 text-main">Características Clave</h2>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A2 2 0 013 15.492V4.508a2 2 0 011.553-1.784L9 1m0 19l6 3m-6-3V1m6 22l5.447-2.724A2 2 0 0021 18.508V7.508a2 2 0 00-1.553-1.784L15 4m0 19V4m0 0L9 1"></path></svg>
-                        </div>
-                        <h5 class="fw-bold text-main">Trazado GIS & Interacción</h5>
-                        <p class="text-muted small">Trazado interactivo de parcelas georreferenciadas utilizando Leaflet.js y Mapbox, permitiendo calcular superficies directamente sobre el mapa.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M9 5l.724-1.447a1 1 0 01.894-.553h2.764a1 1 0 01.894.553L15 5m-6 0h6m-6 0H6a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-3"></path></svg>
-                        </div>
-                        <h5 class="fw-bold text-main">Clasificación Paramétrica de Calidad</h5>
-                        <p class="text-muted small">Algoritmo del "eslabón más débil" (Weakest Link) que evalúa múltiples parámetros (Brix, Calibre, Firmeza) y clasifica automáticamente la producción.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7v10c0 1.1.9 2 2 2h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2zM4 11h16M11 15h.01M7 15h.01"></path></svg>
-                        </div>
-                        <h5 class="fw-bold text-main">Lógica Transaccional en Campañas</h5>
-                        <p class="text-muted small">Transacciones atómicas que validan solapamientos de cultivos en lotes y crean de manera automática labores de siembra integradas.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                        </div>
-                        <h5 class="fw-bold text-main">Arquitectura Desacoplada y JWT</h5>
-                        <p class="text-muted small">Comunicación stateless segura entre cliente Vue 3 y API Django mediante interceptores Axios que manejan la renovación silenciosa de tokens.</p>
-                    </div>
-                </div>
-            </div>
+    <!-- PERSISTENT FLOATING MINI-DOCK -->
+    <div id="mini-music-dock" class="mini-dock">
+        <img id="dock-cover" src="{% static 'images/music/one_piece.webp' %}" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?w=100&auto=format&fit=crop&q=80';" class="mini-dock-cover" alt="Dock Cover">
+        <div class="d-flex flex-column">
+            <span class="mini-dock-title" id="dock-title">UUUUUS! (All of Us)</span>
+            <span class="small text-cyan" id="dock-artist" style="font-size: 0.68rem;">One Piece OST</span>
         </div>
-    </section>
-
-    <section class="py-5">
-        <div class="container">
-            <h2 class="fw-bold mb-5 text-main">Capturas de Pantalla</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <img src="{% static 'images/agrotrack/dashboard.png' %}" class="screenshot-img" alt="Dashboard principal de AgroTrack">
-                    <p class="text-muted small mt-2 text-center">Dashboard de Gestión General</p>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <img src="{% static 'images/agrotrack/lote.png' %}" class="screenshot-img" alt="Trazado de Lote georreferenciado">
-                    <p class="text-muted small mt-2 text-center">Trazado y Superficies en Mapa</p>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <img src="{% static 'images/agrotrack/muestras.png' %}" class="screenshot-img" alt="Control de muestras de calidad">
-                    <p class="text-muted small mt-2 text-center">Historial y Control de Muestras</p>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <img src="{% static 'images/agrotrack/reportes.png' %}" class="screenshot-img" alt="Reporte PDF de muestra generado automáticamente">
-                    <p class="text-muted small mt-2 text-center">Reporte de Muestra PDF (WeasyPrint)</p>
-                </div>
-            </div>
+        <div class="d-flex align-items-center gap-2">
+            <button id="dock-play-btn" class="mini-dock-btn" title="Play / Pause">
+                <svg id="dock-play-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <svg id="dock-pause-icon" class="d-none" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="6" y="4" width="4" height="16"></rect>
+                    <rect x="14" y="4" width="4" height="16"></rect>
+                </svg>
+            </button>
+            <button id="dock-next-btn" class="btn-ctrl p-1 text-white" title="Siguiente canción">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                    <line x1="19" y1="5" x2="19" y2="19"></line>
+                </svg>
+            </button>
         </div>
-    </section>
+    </div>
 
-    <!-- NAVEGACIÓN ENTRE PROYECTOS -->
-    <section class="project-nav">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a href="{% url 'proyecto_logitrack' %}" class="nav-item-project">
-                &larr; Proyecto Anterior: LogiTrack
-            </a>
-            <a href="{% url 'proyecto_cine' %}" class="nav-item-project">
-                Siguiente Proyecto: Gestión de Cine &rarr;
-            </a>
-        </div>
-    </section>
-
-    <footer class="py-5 border-top border-white border-opacity-10 text-center text-muted small">© 2024 Marcos Cufré</footer>
+    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/music-player.js' %}"></script>
+    <script src="{% static 'js/page-router.js' %}"></script>
+    <script src="{% static 'js/portfolio.js' %}"></script>
 </body>
 </html>
-

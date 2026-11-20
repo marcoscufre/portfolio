@@ -4,144 +4,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LogiTrack | Marcos Cufr&eacute;</title>
+    <title>LogiTrack | Case Study · Marcos Cufré</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'bento.css' %}">
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
 </head>
-<body class="bg-dark">
+<body>
 
     {% include 'includes/navbar.html' %}
 
-    <header class="project-header">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center gap-3">
-                <a href="{% url 'index' %}#proyectos" class="back-link me-2">
-                    &larr; Volver
-                </a>
-                <div class="brand-icon me-1">
-                    <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6v12z"></path><path d="M4 6h2v12H4zM18 6h2v12h-2z"></path></svg>
-                </div>
-                <div>
-                    <h5 class="mb-0 fw-bold text-main">LogiTrack</h5>
-                    <span class="small text-muted">Route Planner & HOS Engine</span>
-                </div>
-            </div>
-            {% include 'includes/profile_avatar.html' %}
-        </div>
-    </header>
-
-    <section class="project-hero">
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                    <div class="status-chip mb-3">
-                        <div class="status-dot"></div>
-                        APP LOGISTICA FULLSTACK
+    <main id="page-content">
+        <!-- PROJECT HERO SECTION -->
+        <section class="project-detail-hero">
+            <div class="bento-container">
+                
+                <!-- Breadcrumb & Back Link -->
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div class="breadcrumb-bento">
+                        <a href="{% url 'index' %}">Inicio</a>
+                        <span>/</span>
+                        <a href="{% url 'index' %}#proyectos">Proyectos</a>
+                        <span>/</span>
+                        <span class="text-white">LogiTrack</span>
                     </div>
-                    <h1 class="hero-title mb-4" style="font-size: 3.5rem;">Planificador inteligente para rutas de carga</h1>
-                    <p class="text-muted fs-5 mb-5">
-                        Plataforma stateless para planificar viajes de larga distancia, calcular rutas reales, insertar paradas de combustible y generar cronogramas compatibles con reglas HOS para conductores.
+                    <a href="{% url 'index' %}#proyectos" class="btn-glass-subtle py-1 px-3" style="font-size: 0.8rem;">
+                        &larr; Volver a Proyectos
+                    </a>
+                </div>
+
+                <!-- Title & Header -->
+                <div class="mb-4">
+                    <div class="badge-status mb-3">
+                        <span class="pulse-indicator"></span>
+                        APP LOGÍSTICA FULLSTACK · CASE STUDY
+                    </div>
+                    <h1 class="project-detail-title">
+                        LogiTrack — <span class="bento-gradient-text">Route Planner &amp; HOS Engine</span>
+                    </h1>
+                    <p class="bento-desc fs-5" style="max-width: 850px;">
+                        Plataforma inteligente y stateless para optimizar viajes de larga distancia de transporte pesado, calcular rutas reales, insertar paradas técnicas de combustible y generar cronogramas auditables según normativas FMCSA HOS.
                     </p>
-                    <div class="d-flex flex-wrap gap-3">
-                        <a href="https://full-stack-challenge-liart.vercel.app/" target="_blank" class="btn btn-primary px-4 py-2 fw-bold">App en Vivo</a>
-                        <a href="https://github.com/marcoscufre/full-stack-challenge" target="_blank" class="btn btn-outline-secondary px-4 py-2 fw-bold">Repo en GitHub</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="project-hero-img-container">
-                        <img src="{% static 'images/routeplanner/landing.webp' %}" alt="LogiTrack landing screen">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="py-5 border-top border-bottom border-white border-opacity-5">
-        <div class="container">
-            <div class="row g-4 text-center">
-                <div class="col">
-                    <div class="tech-icon-wrapper">
-                        <svg role="img" viewBox="0 0 24 24" fill="currentColor"><title>Django</title><path d="M11.146 0h3.924v18.166c-2.013.382-3.491.535-5.096.535-4.791 0-7.288-2.166-7.288-6.32 0-4.002 2.65-6.6 6.753-6.6.637 0 1.121.05 1.707.203zm0 9.143a3.894 3.894 0 00-1.325-.204c-1.988 0-3.134 1.223-3.134 3.365 0 2.09 1.096 3.236 3.109 3.236.433 0 .79-.025 1.35-.102V9.142zM21.314 6.06v9.098c0 3.134-.229 4.638-.917 5.937-.637 1.249-1.478 2.039-3.211 2.905l-3.644-1.733c1.733-.815 2.574-1.53 3.109-2.625.561-1.121.739-2.421.739-5.835V6.059h3.924zM17.39.021h3.924v4.026H17.39z"/></svg>
-                        <div class="small fw-bold mt-2 text-main">Django</div>
+                    <!-- Action Links -->
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="https://full-stack-challenge-liart.vercel.app/" target="_blank" class="btn-neon-blue">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                            </svg>
+                            Ver App en Vivo
+                        </a>
+                        <a href="https://github.com/marcoscufre/full-stack-challenge" target="_blank" class="btn-glass-subtle">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                            Repositorio GitHub
+                        </a>
                     </div>
                 </div>
-                <div class="col"><div class="tech-icon-wrapper"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l10 6-10 6L2 8l10-6z"></path><path d="M2 16l10 6 10-6M2 12l10 6 10-6"></path></svg><div class="small fw-bold mt-2 text-main">React 19</div></div></div>
-                <div class="col"><div class="tech-icon-wrapper"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg><div class="small fw-bold mt-2 text-main">Vite</div></div></div>
-                <div class="col"><div class="tech-icon-wrapper"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6M7 4h10a2 2 0 012 2v14l-7-3-7 3V6a2 2 0 012-2z"></path></svg><div class="small fw-bold mt-2 text-main">Pydantic</div></div></div>
-                <div class="col"><div class="tech-icon-wrapper"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A2 2 0 013 15.492V4.508a2 2 0 011.553-1.784L9 1m0 19l6 3m-6-3V1m6 22l5.447-2.724A2 2 0 0021 18.508V7.508a2 2 0 00-1.553-1.784L15 4m0 19V4m0 0L9 1"></path></svg><div class="small fw-bold mt-2 text-main">MapLibre</div></div></div>
-            </div>
-        </div>
-    </section>
 
-    <section class="py-5">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-7">
-                    <h2 class="fw-bold mb-4 text-main">El Desaf&iacute;o</h2>
-                    <p class="text-muted fs-5 mb-4">
-                        Coordinar geocodificaci&oacute;n, routing, combustible y cumplimiento HOS en una respuesta clara para el usuario, sin persistencia ni base de datos, dejando que cada plan se calcule bajo demanda.
-                    </p>
-                    <div class="challenge-box">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <svg width="24" height="24" class="text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <h6 class="mb-0 fw-bold text-main">Enfoque T&eacute;cnico</h6>
+                <!-- Quick Stats Row (Inspired by radnaabazar.com) -->
+                <div class="project-stats-row">
+                    <div class="project-stat-card">
+                        <span class="project-stat-val text-cyan">100%</span>
+                        <span class="project-stat-lbl">Cumplimiento HOS</span>
+                    </div>
+                    <div class="project-stat-card">
+                        <span class="project-stat-val" style="color: #60a5fa;">&lt;250ms</span>
+                        <span class="project-stat-lbl">Latencia de Ruta</span>
+                    </div>
+                    <div class="project-stat-card">
+                        <span class="project-stat-val" style="color: #38bdf8;">1,000 mi</span>
+                        <span class="project-stat-lbl">Autonomía Diésel</span>
+                    </div>
+                    <div class="project-stat-card">
+                        <span class="project-stat-val" style="color: #93c5fd;">Stateless</span>
+                        <span class="project-stat-lbl">Arquitectura Cloud</span>
+                    </div>
+                </div>
+
+                <!-- Showcase Image Frame -->
+                <div class="project-showcase-frame">
+                    <img src="{% static 'images/routeplanner/landing.webp' %}" alt="LogiTrack Route Planner Landing">
+                </div>
+
+                <!-- Overview & Technical Challenge Bento -->
+                <div class="row g-4 my-4">
+                    <div class="col-lg-7">
+                        <div class="bento-card h-100">
+                            <div class="pill-info mb-3">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                                <span>El Desafío de Ingeniería</span>
+                            </div>
+                            <h3 class="fw-bold text-white mb-3">Orquestación de Rutas en Tiempo Real</h3>
+                            <p class="text-secondary mb-4">
+                                El transporte de carga en EE.UU. exige cumplir estrictamente con las reglas de Horas de Servicio (HOS) de la FMCSA (límite de 11 horas de conducción, descanso de 30 minutos y reinicio de 10 horas). El desafío fue calcular en segundos un viaje completo uniendo geocodificación, mapas de carreteras, paradas de repostaje y cronogramas legales sin recurrir a bases de datos pesadas.
+                            </p>
+                            <p class="text-secondary mb-0">
+                                La solución fue diseñar una arquitectura desacoplada en <strong>Django con tipado estricto en Pydantic</strong>, procesando de manera stateless cada itinerario como un pipeline de transformación de datos determinístico y ultrarrápido.
+                            </p>
                         </div>
-                        <p class="text-muted mb-0 small">
-                            Orquestaci&oacute;n backend con servicios desacoplados: LocationIQ para autocompletado, OpenRouteService para rutas, MapTiler para visualizaci&oacute;n y motores propios para HOS, combustible y logs diarios.
-                        </p>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="bento-card h-100">
+                            <h5 class="fw-bold text-white mb-3">Arquitectura Técnica</h5>
+                            <div class="d-flex flex-column gap-3">
+                                <div class="p-3 rounded-3 border border-white border-opacity-10 bg-dark bg-opacity-40">
+                                    <span class="small text-cyan text-uppercase fw-bold d-block mb-1">Backend Core</span>
+                                    <span class="text-white fw-bold">Django 5 + Pydantic Pipelines</span>
+                                </div>
+                                <div class="p-3 rounded-3 border border-white border-opacity-10 bg-dark bg-opacity-40">
+                                    <span class="small text-cyan text-uppercase fw-bold d-block mb-1">Frontend UI</span>
+                                    <span class="text-white fw-bold">React 19 + MapLibre GL + Tailwind</span>
+                                </div>
+                                <div class="p-3 rounded-3 border border-white border-opacity-10 bg-dark bg-opacity-40">
+                                    <span class="small text-cyan text-uppercase fw-bold d-block mb-1">Servicios Geoespaciales</span>
+                                    <span class="text-white fw-bold">OpenRouteService &amp; LocationIQ API</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-5">
-                    <div class="p-4 bg-card rounded-4 border border-white border-opacity-5">
-                        <h6 class="fw-bold mb-4 text-uppercase small text-main">Arquitectura T&eacute;cnica</h6>
-                        <div class="metric-card"><span class="metric-label">Backend</span><span class="metric-value">Django + Pydantic</span></div>
-                        <div class="metric-card"><span class="metric-label">Frontend</span><span class="metric-value">React + Tailwind</span></div>
-                        <div class="metric-card"><span class="metric-label">Persistencia</span><span class="metric-value">Stateless</span></div>
+
+                <!-- Key Capabilities 2x2 Bento Grid -->
+                <div class="my-5">
+                    <h3 class="fw-bold text-white mb-4">Capacidades Clave del Sistema</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="feature-bento-box">
+                                <div class="text-cyan mb-3">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                </div>
+                                <h5 class="fw-bold text-white mb-2">Simulador de Reglas HOS (FMCSA)</h5>
+                                <p class="text-secondary small mb-0">
+                                    Automatiza la regla de 11h de conducción, ventana diaria de 14h, descanso mandatorio de 30 minutos y reseteo de 10 horas fuera de servicio, garantizando que el conductor nunca incurra en penalizaciones.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-bento-box">
+                                <div class="text-cyan mb-3">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                                    </svg>
+                                </div>
+                                <h5 class="fw-bold text-white mb-2">Enrutamiento Real por Carretera</h5>
+                                <p class="text-secondary small mb-0">
+                                    Resuelve ubicaciones textuales con geocodificación inversa, calcula distancias reales entre coordenadas y genera geometrías vectoriales con puntos de parada claramente demarcados.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-bento-box">
+                                <div class="text-cyan mb-3">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                    </svg>
+                                </div>
+                                <h5 class="fw-bold text-white mb-2">Planificador de Combustible</h5>
+                                <p class="text-secondary small mb-0">
+                                    Monitorea la autonomía del camión e inserta paradas técnicas de carga antes de alcanzar las 1,000 millas recorridas, sincronizándolas con los descansos de turno.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-bento-box">
+                                <div class="text-cyan mb-3">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    </svg>
+                                </div>
+                                <h5 class="fw-bold text-white mb-2">Generador de Logs Auditables (ELD)</h5>
+                                <p class="text-secondary small mb-0">
+                                    Convierte la secuencia de eventos del viaje en tarjetas diarias estilo dispositivo electrónico de registro (ELD), segmentando horas de conducción, descanso y servicio por día calendario.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Screenshots Gallery Bento -->
+                <div class="my-5">
+                    <h3 class="fw-bold text-white mb-4">Galería de Pantallas</h3>
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="gallery-bento-item">
+                                <img src="{% static 'images/routeplanner/planning.webp' %}" alt="Formulario de Planificación">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="gallery-bento-item">
+                                <img src="{% static 'images/routeplanner/complete.webp' %}" alt="Ruta Completa Generada">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="gallery-bento-item">
+                                <img src="{% static 'images/routeplanner/dashboard.webp' %}" alt="Dashboard de LogiTrack">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="gallery-bento-item">
+                                <img src="{% static 'images/routeplanner/logs.webp' %}" alt="Logs Diarios de Conducción">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Navigation Bar -->
+                <div class="project-nav-bar">
+                    <a href="{% url 'index' %}#proyectos" class="project-nav-btn">
+                        &larr; Ver Todos los Proyectos
+                    </a>
+                    <a href="{% url 'proyecto_agrotrack' %}" class="project-nav-btn">
+                        Siguiente: AgroTrack &rarr;
+                    </a>
+                </div>
+
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="py-5 bg-dark">
-        <div class="container">
-            <h2 class="fw-bold mb-5 text-main">Capacidades Clave</h2>
-            <div class="row g-4">
-                <div class="col-md-6"><div class="feature-card"><div class="feature-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3"></path><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div><h5 class="fw-bold text-main">Motor HOS</h5><p class="text-muted small">Simula reglas FMCSA como 11 horas de conducci&oacute;n, ventana de 14 horas, descanso de 30 minutos y ciclo 70h/8d.</p></div></div>
-                <div class="col-md-6"><div class="feature-card"><div class="feature-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8-8-2z"></path></svg></div><h5 class="fw-bold text-main">Routing Real</h5><p class="text-muted small">Resuelve direcciones, calcula legs del viaje y renderiza geometr&iacute;as de carretera con marcadores de origen, pickup, destino y combustible.</p></div></div>
-                <div class="col-md-6"><div class="feature-card"><div class="feature-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 14h16"></path><path d="M6 14V8a4 4 0 018 0v6"></path><path d="M18 14v6M6 14v6"></path></svg></div><h5 class="fw-bold text-main">Plan de Combustible</h5><p class="text-muted small">Inserta paradas t&eacute;cnicas antes de superar 1,000 millas, integr&aacute;ndolas al cronograma operativo del viaje.</p></div></div>
-                <div class="col-md-6"><div class="feature-card"><div class="feature-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 17v-6h13M9 7h13M5 7h.01M5 17h.01"></path></svg></div><h5 class="fw-bold text-main">Logs Diarios</h5><p class="text-muted small">Convierte la l&iacute;nea de tiempo continua en registros diarios visuales tipo ELD, listos para auditar descansos y conducci&oacute;n.</p></div></div>
+        <!-- FOOTER -->
+        <footer class="py-5 border-top border-white border-opacity-10 text-center text-muted small">
+            <div class="container">
+                <p class="mb-1 text-white fw-bold">Marcos Cufré &copy; 2026</p>
+                <p class="mb-0 text-dim">Diseñado con inspiración en <a href="https://www.radnaabazar.com/en" target="_blank" class="text-cyan text-decoration-none">radnaabazar.com</a></p>
             </div>
-        </div>
-    </section>
+        </footer>
+    </main>
 
-    <section class="py-5">
-        <div class="container">
-            <h2 class="fw-bold mb-5 text-main">Capturas de Pantalla</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3"><img src="{% static 'images/routeplanner/planning.webp' %}" class="screenshot-img" alt="Route planning form"></div>
-                <div class="col-md-6 col-lg-3"><img src="{% static 'images/routeplanner/complete.webp' %}" class="screenshot-img" alt="Complete route plan"></div>
-                <div class="col-md-6 col-lg-3"><img src="{% static 'images/routeplanner/dashboard.webp' %}" class="screenshot-img" alt="LogiTrack dashboard"></div>
-                <div class="col-md-6 col-lg-3"><img src="{% static 'images/routeplanner/logs.webp' %}" class="screenshot-img" alt="Driver daily logs"></div>
-            </div>
+    <!-- PERSISTENT FLOATING MINI-DOCK (Keeps audio playing across page transitions) -->
+    <div id="mini-music-dock" class="mini-dock">
+        <img id="dock-cover" src="{% static 'images/music/one_piece.webp' %}" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?w=100&auto=format&fit=crop&q=80';" class="mini-dock-cover" alt="Dock Cover">
+        <div class="d-flex flex-column">
+            <span class="mini-dock-title" id="dock-title">UUUUUS! (All of Us)</span>
+            <span class="small text-cyan" id="dock-artist" style="font-size: 0.68rem;">One Piece OST</span>
         </div>
-    </section>
-
-    <!-- NAVEGACIÓN ENTRE PROYECTOS -->
-    <section class="project-nav">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a href="{% url 'index' %}#proyectos" class="nav-item-project">
-                &larr; Ver Todos los Proyectos
-            </a>
-            <a href="{% url 'proyecto_agrotrack' %}" class="nav-item-project">
-                Siguiente Proyecto: AgroTrack &rarr;
-            </a>
+        <div class="d-flex align-items-center gap-2">
+            <button id="dock-play-btn" class="mini-dock-btn" title="Play / Pause">
+                <svg id="dock-play-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <svg id="dock-pause-icon" class="d-none" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="6" y="4" width="4" height="16"></rect>
+                    <rect x="14" y="4" width="4" height="16"></rect>
+                </svg>
+            </button>
+            <button id="dock-next-btn" class="btn-ctrl p-1 text-white" title="Siguiente canción">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                    <line x1="19" y1="5" x2="19" y2="19"></line>
+                </svg>
+            </button>
         </div>
-    </section>
+    </div>
 
-    <footer class="py-5 border-top border-white border-opacity-10 text-center text-muted small">&copy; 2024 Marcos Cufr&eacute;</footer>
+    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/music-player.js' %}"></script>
+    <script src="{% static 'js/page-router.js' %}"></script>
+    <script src="{% static 'js/portfolio.js' %}"></script>
 </body>
 </html>
-

@@ -4,7 +4,7 @@
  * Live clock, terminal playground, spotlight glow, toast feedback.
  */
 
-document.addEventListener("DOMContentLoaded", () => {
+function initPortfolioInteractions() {
     // 1. Live Argentina Local Time (ART, UTC-3)
     const localTimeEl = document.getElementById("live-local-time");
     function updateArgentinaTime() {
@@ -25,10 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     updateArgentinaTime();
-    setInterval(updateArgentinaTime, 1000);
 
     // 2. Mouse Spotlight Glow on Bento Cards
-    const bentoCards = document.querySelectorAll(".bento-card, .project-bento-card");
+    const bentoCards = document.querySelectorAll(".bento-card, .project-bento-card, .feature-bento-box, .project-stat-card");
     bentoCards.forEach(card => {
         card.addEventListener("mousemove", (e) => {
             const rect = card.getBoundingClientRect();
@@ -57,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     if (terminalForm && terminalInput && terminalOutput) {
-        terminalForm.addEventListener("submit", (e) => {
+        terminalForm.onsubmit = (e) => {
             e.preventDefault();
             const rawVal = terminalInput.value.trim().toLowerCase();
             if (!rawVal) return;
@@ -85,17 +84,17 @@ document.addEventListener("DOMContentLoaded", () => {
             terminalOutput.appendChild(responseLine);
             terminalInput.value = "";
             terminalOutput.scrollTop = terminalOutput.scrollHeight;
-        });
+        };
 
         // Clickable quick command chips
         document.querySelectorAll(".quick-cmd-chip").forEach(chip => {
-            chip.addEventListener("click", () => {
+            chip.onclick = () => {
                 const cmd = chip.getAttribute("data-cmd");
                 if (cmd && terminalInput) {
                     terminalInput.value = cmd;
                     terminalForm.dispatchEvent(new Event("submit"));
                 }
-            });
+            };
         });
     }
 
@@ -104,14 +103,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const toastEl = document.getElementById("copy-toast");
 
     if (copyEmailBtn) {
-        copyEmailBtn.addEventListener("click", () => {
+        copyEmailBtn.onclick = () => {
             const email = "marcoscufre04@gmail.com";
             navigator.clipboard.writeText(email).then(() => {
                 showToast("¡Email copiado al portapapeles!");
             }).catch(() => {
                 showToast("marcoscufre04@gmail.com");
             });
-        });
+        };
     }
 
     function showToast(msg) {
@@ -134,4 +133,28 @@ document.addEventListener("DOMContentLoaded", () => {
             }[tag] || tag)
         );
     }
+}
+
+// Global exposure for SPA page router
+window.initPortfolioInteractions = initPortfolioInteractions;
+
+document.addEventListener("DOMContentLoaded", () => {
+    initPortfolioInteractions();
+    setInterval(() => {
+        const localTimeEl = document.getElementById("live-local-time");
+        if (!localTimeEl) return;
+        try {
+            const now = new Date();
+            const options = {
+                timeZone: "America/Argentina/Buenos_Aires",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: false
+            };
+            localTimeEl.textContent = `${new Intl.DateTimeFormat("es-AR", options).format(now)} ART`;
+        } catch (e) {
+            localTimeEl.textContent = "UTC-3";
+        }
+    }, 1000);
 });
