@@ -4,263 +4,834 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marcos Cufré | Backend Developer</title>
+    <title>Marcos Cufré | Backend Developer & Systems Architect</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Base Styles & Bento Layout Styles -->
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'bento.css' %}">
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
 </head>
 <body>
 
-   {% include 'includes/navbar.html' %}
+    <!-- NAVBAR -->
+    {% include 'includes/navbar.html' %}
 
-    <!-- HERO SECTION -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <div class="status-chip">
-                        <div class="status-dot"></div>
-                        DISPONIBLE PARA NUEVOS PROYECTOS
-                    </div>
-                    <h1 class="hero-title">Marcos Cufré</h1>
-                    <h2 class="hero-subtitle">Backend Developer | <span>Python & Django </span></h2>
-                    <p class="text-muted mb-4 fs-5" style="max-width: 600px;">
-                        Enfocado en construir APIs escalables, sistemas orientados a datos y código limpio.
-                    </p>
-                    <div class="d-flex gap-3 mb-5">
-                        <a href="#proyectos" class="btn btn-primary px-4 py-2 fw-bold">Ver Proyectos</a>
-                        <a href="#contacto" class="btn btn-outline-secondary px-4 py-2 fw-bold">Contactar</a>
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Django</span>
-                        <span class="tag">FastAPI</span>
-                        <span class="tag">PostgreSQL</span>
+    <!-- HERO BENTO SECTION -->
+    <section class="py-5">
+        <div class="bento-container">
+            <div class="bento-grid">
+                
+                <!-- Bento Item 1: Main Introduction (8 cols) -->
+                <div class="bento-card bento-col-8" style="grid-column: span 8;">
+                    <div class="bento-content">
+                        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                            <div class="badge-status">
+                                <span class="pulse-indicator"></span>
+                                DISPONIBLE PARA NUEVOS PROYECTOS
+                            </div>
+                            <div class="pill-info">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span>Argentina · <span id="live-local-time">Cargando...</span></span>
+                            </div>
+                        </div>
+
+                        <h1 class="bento-title-main">
+                            Hola, soy <span class="bento-gradient-text">Marcos Cufré</span>
+                        </h1>
+                        <h2 class="bento-subtitle">
+                            Backend Developer <span class="text-cyan">| Python, Django &amp; FastAPI</span>
+                        </h2>
+                        
+                        <p class="bento-desc">
+                            Desarrollador backend de 25 años con 1 año de experiencia práctica enfocado en diseñar APIs escalables, arquitecturas limpias orientadas a datos y sistemas completos en producción. Curioso, reflexivo y apasionado por resolver problemas técnicos reales con código mantenible.
+                        </p>
+
+                        <!-- Action Buttons -->
+                        <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
+                            <a href="#proyectos" class="btn-neon-blue">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                                </svg>
+                                Explorar Proyectos
+                            </a>
+                            <a href="#contacto" class="btn-glass-subtle">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                Contactar
+                            </a>
+                            <button id="copy-email-btn" class="btn-glass-subtle" title="Copiar email al portapapeles">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                </svg>
+                                <span>Copiar Email</span>
+                            </button>
+                        </div>
+
+                        <!-- Core Badges -->
+                        <div class="d-flex flex-wrap gap-2 mt-auto pt-3 border-top border-white border-opacity-10">
+                            <span class="tech-tag-badge">Python 3.12+</span>
+                            <span class="tech-tag-badge">Django / DRF</span>
+                            <span class="tech-tag-badge">FastAPI</span>
+                            <span class="tech-tag-badge">PostgreSQL</span>
+                            <span class="tech-tag-badge">Vue 3</span>
+                            <span class="tech-tag-badge">Docker</span>
+                            <span class="tech-tag-badge">Clean Code</span>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-5 d-none d-lg-block">
-                    <div class="code-window">
-                        <div class="code-header">
-                            <div class="dot red"></div>
-                            <div class="dot yellow"></div>
-                            <div class="dot green"></div>
-                        </div>
-                        <div class="code-content">
-                            <pre class="m-0"><code><span class="keyword">class</span> <span class="class-name">MarcosCufre</span>:
-    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>):
-        <span class="keyword">self</span>.role = <span class="string">"Backend Developer"</span>
-        <span class="keyword">self</span>.age = <span class="number">25</span>
-        <span class="keyword">self</span>.specialties = [<span class="string">"API"</span>, <span class="string">"AI"</span>, <span class="string">"DB"</span>]
 
-    <span class="keyword">def</span> <span class="function">get_mission</span>(<span class="keyword">self</span>):
-        <span class="keyword">return</span> <span class="string">"Building clean architectures"</span></code></pre>
+                <!-- Bento Item 2: Music Player (4 cols) - Marcos' Curated Soundtrack -->
+                <div id="music-player-bento" class="bento-card bento-player bento-col-4" style="grid-column: span 4;">
+                    <div class="bento-content">
+                        <!-- Player Header -->
+                        <div class="player-header">
+                            <div class="player-tag">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 18V5l12-2v13"></path>
+                                    <circle cx="6" cy="18" r="3"></circle>
+                                    <circle cx="18" cy="16" r="3"></circle>
+                                </svg>
+                                <span>My Soundtrack</span>
+                            </div>
+                            <div class="visualizer-wrapper" title="Audio Visualizer">
+                                <div class="viz-bar"></div>
+                                <div class="viz-bar"></div>
+                                <div class="viz-bar"></div>
+                                <div class="viz-bar"></div>
+                                <div class="viz-bar"></div>
+                            </div>
+                        </div>
+
+                        <!-- Album Art & Vinyl Disc Animation -->
+                        <div class="d-flex align-items-center gap-3 my-2">
+                            <div class="vinyl-container">
+                                <img id="player-cover" src="{% static 'images/music/one_piece.webp' %}" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?w=300&auto=format&fit=crop&q=80';" class="cover-art" alt="Track Cover">
+                                <div id="player-vinyl" class="vinyl-disc"></div>
+                            </div>
+                            <div class="flex-grow-1 overflow-hidden">
+                                <div class="pill-info mb-1" id="player-genre" style="font-size: 0.7rem; padding: 2px 8px;">Anime / Rock</div>
+                                <h6 class="text-white fw-bold text-truncate mb-0" id="player-title">UUUUUS! (All of Us)</h6>
+                                <p class="small text-muted text-truncate mb-0" id="player-artist">Hiroshi Kitadani · One Piece</p>
+                            </div>
+                        </div>
+
+                        <!-- Scrubber Progress Bar -->
+                        <div class="progress-container" id="player-progress-container" title="Click para avanzar/retroceder">
+                            <div class="progress-bar-fill" id="player-progress-bar"></div>
+                        </div>
+                        <div class="time-row">
+                            <span id="player-current-time">0:00</span>
+                            <span id="player-duration">3:18</span>
+                        </div>
+
+                        <!-- Control Buttons -->
+                        <div class="player-controls">
+                            <button id="player-prev-btn" class="btn-ctrl" title="Canción anterior">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="19 20 9 12 19 4 19 20"></polygon>
+                                    <line x1="5" y1="19" x2="5" y2="5"></line>
+                                </svg>
+                            </button>
+                            <button id="player-play-btn" class="btn-play-hero" title="Reproducir / Pausar">
+                                <svg id="player-play-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg>
+                                <svg id="player-pause-icon" class="d-none" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                    <rect x="6" y="4" width="4" height="16"></rect>
+                                    <rect x="14" y="4" width="4" height="16"></rect>
+                                </svg>
+                            </button>
+                            <button id="player-next-btn" class="btn-ctrl" title="Siguiente canción">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                                    <line x1="19" y1="5" x2="19" y2="19"></line>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Volume Slider Row -->
+                        <div class="volume-row">
+                            <button id="player-volume-btn" class="btn-ctrl p-1" title="Mutear / Desmutear">
+                                <svg id="player-volume-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                                </svg>
+                            </button>
+                            <input type="range" class="volume-slider" id="player-volume" min="0" max="1" step="0.05" value="0.8">
+                        </div>
+
+                        <!-- Playlist Selection with Marcos' exact choices -->
+                        <div class="playlist-menu">
+                            <div class="playlist-item active" data-index="0">
+                                <span>1. One Piece - UUUUUS! (All of Us)</span>
+                                <span class="small text-dim">3:18</span>
+                            </div>
+                            <div class="playlist-item" data-index="1">
+                                <span>2. Led Zeppelin - When the Levee Breaks</span>
+                                <span class="small text-dim">7:08</span>
+                            </div>
+                            <div class="playlist-item" data-index="2">
+                                <span>3. Daft Punk - Instant Crush</span>
+                                <span class="small text-dim">5:37</span>
+                            </div>
+                            <div class="playlist-item" data-index="3">
+                                <span>4. Expedition 33 - Lumière</span>
+                                <span class="small text-dim">3:42</span>
+                            </div>
+                            <div class="playlist-item" data-index="4">
+                                <span>5. God of War 4 - Memories of Mother</span>
+                                <span class="small text-dim">3:39</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-2 text-center">
+                            <span class="text-dim" style="font-size: 0.68rem; letter-spacing: 0.5px;">Atajos: Espacio (Play/Pausa) · M (Mute)</span>
                         </div>
                     </div>
                 </div>
+
+                <!-- Bento Item 3: Interactive Developer Terminal (7 cols) -->
+                <div class="bento-card bento-terminal bento-col-7" style="grid-column: span 7;">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="t-dot red"></span>
+                            <span class="t-dot yellow"></span>
+                            <span class="t-dot green"></span>
+                        </div>
+                        <span class="terminal-title">marcos@arch-linux: ~/developer_hub</span>
+                        <span class="badge-status" style="font-size: 0.65rem; padding: 2px 8px;">interactive-cli</span>
+                    </div>
+
+                    <div class="terminal-screen" id="terminal-cmd-output">
+                        <div class="terminal-line">
+                            <span class="text-dim">// Bienvenido a la terminal interactiva de Marcos Cufré.</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="text-cyan">marcos.profile:</span> <span class="text-white">"Backend Developer · Curioso, reflexivo y fan del Counter-Strike."</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="text-dim">// Escribe un comando o haz clic en los chips rápidos:</span>
+                        </div>
+                    </div>
+
+                    <form id="terminal-cmd-form" class="terminal-input-row">
+                        <span class="text-cyan fw-bold">$&gt;</span>
+                        <input type="text" id="terminal-cmd-input" class="terminal-input" placeholder="Escribe 'help', 'skills', 'music', 'hobbies' o 'contact'..." autocomplete="off">
+                        <button type="submit" class="btn-ctrl p-1 text-cyan" title="Ejecutar">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                    </form>
+
+                    <div class="quick-commands">
+                        <span class="quick-cmd-chip" data-cmd="skills">skills</span>
+                        <span class="quick-cmd-chip" data-cmd="projects">projects</span>
+                        <span class="quick-cmd-chip" data-cmd="music">music</span>
+                        <span class="quick-cmd-chip" data-cmd="hobbies">hobbies</span>
+                        <span class="quick-cmd-chip" data-cmd="status">status</span>
+                        <span class="quick-cmd-chip" data-cmd="contact">contact</span>
+                        <span class="quick-cmd-chip" data-cmd="clear">clear</span>
+                    </div>
+                </div>
+
+                <!-- Bento Item 4: Quantified Stats & Philosophy (5 cols) -->
+                <div class="bento-card bento-col-5" style="grid-column: span 5;">
+                    <div class="bento-content">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <h5 class="fw-bold text-white mb-0">Métricas &amp; Perfil</h5>
+                            <span class="pill-info">Enfoque Real</span>
+                        </div>
+                        <div class="row g-3 my-auto">
+                            <div class="col-6">
+                                <div class="stat-metric-box">
+                                    <span class="stat-number text-cyan">+1</span>
+                                    <span class="stat-label">Año de Exp</span>
+                                    <span class="small text-muted mt-1">Backend &amp; APIs</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-metric-box">
+                                    <span class="stat-number" style="color: #60a5fa;">4</span>
+                                    <span class="stat-label">Sistemas Core</span>
+                                    <span class="small text-muted mt-1">En producción</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-metric-box">
+                                    <span class="stat-number" style="color: #38bdf8;">CS2</span>
+                                    <span class="stat-label">Gamer &amp; Táctica</span>
+                                    <span class="small text-muted mt-1">Counter-Strike fan</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-metric-box">
+                                    <span class="stat-number" style="color: #93c5fd;">100%</span>
+                                    <span class="stat-label">Curiosidad</span>
+                                    <span class="small text-muted mt-1">Mente reflexiva</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- ABOUT SECTION -->
     <section id="about" class="py-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="p-5 rounded-4 border border-white border-opacity-5 bg-card">
-                        <div class="row align-items-center g-5">
-                            <div class="col-lg-12">
-                                <h2 class="fw-bold mb-4">Acerca de Mí</h2>
-                                <p class="text-muted fs-5 mb-5">
-                                    Soy un desarrollador backend de 25 años enfocado en sistemas de alto rendimiento y escalabilidad. Mi experiencia radica en el diseño de APIs robustas, optimización de esquemas de bases de datos e integración de inteligencia artificial en arquitecturas existentes.
-                                </p>
-                                <div class="row g-4">
-                                    <div class="col-md-3">
-                                        <div class="pilar-card h-100">
-                                            <span class="pilar-icon">
-                                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                                            </span>
-                                            <h6 class="fw-bold small">Arquitectura Backend</h6>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="pilar-card h-100">
-                                            <span class="pilar-icon">
-                                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                                            </span>
-                                            <h6 class="fw-bold small">Diseño de API REST</h6>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="pilar-card h-100">
-                                            <span class="pilar-icon">
-                                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7v10c0 1.1.9 2 2 2h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2zM4 11h16M11 15h.01M7 15h.01"></path></svg>
-                                            </span>
-                                            <h6 class="fw-bold small">Diseño de Base de Datos</h6>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="pilar-card h-100">
-                                            <span class="pilar-icon">
-                                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                            </span>
-                                            <h6 class="fw-bold small">Clean Code</h6>
-                                        </div>
-                                    </div>
+        <div class="bento-container">
+            <div class="bento-card">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-8">
+                        <div class="pill-info mb-3">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                            <span>Sobre mi enfoque</span>
+                        </div>
+                        <h2 class="fw-bold text-white mb-3" style="font-size: 2.2rem; letter-spacing: -1px;">
+                            Ingeniería backend con mentalidad analítica y reflexiva.
+                        </h2>
+                        <p class="bento-desc mb-4">
+                            Tengo 25 años y 1 año de experiencia sólida desarrollando en backend. Me mueve una gran curiosidad por entender a fondo cómo funcionan los sistemas: desde el modelado relacional y la optimización de consultas SQL, hasta la arquitectura desacoplada y la creación de APIs REST limpias con Python, Django y FastAPI. Me considero una persona reflexiva que disfruta resolver problemas complejos y aprender continuamente.
+                        </p>
+                        
+                        <div class="row g-3">
+                            <div class="col-sm-6 col-md-3">
+                                <div class="pilar-card h-100 p-3 rounded-4 border border-white border-opacity-10 bg-dark bg-opacity-50">
+                                    <span class="text-cyan mb-2 d-inline-block">
+                                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                                    </span>
+                                    <h6 class="fw-bold text-white small mb-1">Arquitectura Backend</h6>
+                                    <p class="text-muted small mb-0">Patrones modulares y buenas prácticas.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="pilar-card h-100 p-3 rounded-4 border border-white border-opacity-10 bg-dark bg-opacity-50">
+                                    <span class="text-cyan mb-2 d-inline-block">
+                                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                    </span>
+                                    <h6 class="fw-bold text-white small mb-1">APIs REST &amp; Doc</h6>
+                                    <p class="text-muted small mb-0">FastAPI &amp; DRF con OpenAPI/Swagger.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="pilar-card h-100 p-3 rounded-4 border border-white border-opacity-10 bg-dark bg-opacity-50">
+                                    <span class="text-cyan mb-2 d-inline-block">
+                                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7v10c0 1.1.9 2 2 2h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2zM4 11h16M11 15h.01M7 15h.01"></path></svg>
+                                    </span>
+                                    <h6 class="fw-bold text-white small mb-1">Modelado de Datos</h6>
+                                    <p class="text-muted small mb-0">PostgreSQL, integridad y consultas eficientes.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="pilar-card h-100 p-3 rounded-4 border border-white border-opacity-10 bg-dark bg-opacity-50">
+                                    <span class="text-cyan mb-2 d-inline-block">
+                                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    </span>
+                                    <h6 class="fw-bold text-white small mb-1">Clean Code</h6>
+                                    <p class="text-muted small mb-0">Código legible, mantenible y testeable.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-lg-4 text-center">
+                        <div class="p-4 rounded-4 border border-white border-opacity-10" style="background: rgba(3, 7, 18, 0.7);">
+                            <div class="mb-3 d-inline-block p-3 rounded-circle border border-primary border-opacity-25" style="background: rgba(59, 130, 246, 0.1);">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <h5 class="fw-bold text-white mb-1">Marcos Cufré</h5>
+                            <p class="small text-cyan mb-3">Backend Developer · Python &amp; Django</p>
+                            <p class="small text-muted mb-4">
+                                Enfocado en aportar valor, aprender de ingenieros senior y construir soluciones duraderas.
+                            </p>
+                            <a href="#contacto" class="btn-neon-blue w-100 justify-content-center">Iniciar Conversación</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TECH STACK -->
-    <section id="stack" class="py-5 bg-dark">
-        <div class="container text-center mb-5">
-            <h2 class="fw-bold">Tech Stack</h2>
-            <p class="text-muted">Las herramientas y tecnologías que utilizo para dar vida a las ideas.</p>
-        </div>
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-3"><div class="tech-card"><h5 class="fw-bold mb-4">Backend</h5><ul class="tech-list"><li>Python</li><li>Django / DRF</li><li>FastAPI</li><li>Express.js</li><li>SQLAlchemy</li></ul></div></div>
-                <div class="col-md-3"><div class="tech-card"><h5 class="fw-bold mb-4">Frontend</h5><ul class="tech-list"><li>JavaScript</li><li>Vue 3</li><li>Vite</li><li>HTML5 / CSS3</li><li>Bootstrap</li></ul></div></div>
-                <div class="col-md-3"><div class="tech-card"><h5 class="fw-bold mb-4">Database</h5><ul class="tech-list"><li>PostgreSQL</li><li>Supabase</li><li>MySQL</li><li>SQL Server</li><li>SQLite</li></ul></div></div>
-                <div class="col-md-3"><div class="tech-card"><h5 class="fw-bold mb-4">Tools & Deploy</h5><ul class="tech-list"><li>Docker</li><li>Git / GitHub</li><li>Swagger</li><li>Render</li><li>Vercel</li></ul></div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
+    <!-- FEATURED PROJECTS BENTO SHOWCASE -->
     <section id="proyectos" class="py-5">
-        <div class="container mb-5">
-            <h2 class="fw-bold mb-0">Proyectos Destacados</h2>
-            <p class="text-muted">Una selección de mis trabajos más recientes.</p>
+        <div class="bento-container mb-4">
+            <div class="d-flex flex-wrap align-items-end justify-content-between gap-3">
+                <div>
+                    <div class="pill-info mb-2">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <span>Portfolio de Ingeniería</span>
+                    </div>
+                    <h2 class="fw-bold text-white mb-1" style="font-size: 2.5rem; letter-spacing: -1px;">
+                        Proyectos Destacados
+                    </h2>
+                    <p class="text-muted">Sistemas reales desarrollados con foco en robustez, datos y experiencia de usuario.</p>
+                </div>
+                <div class="d-none d-md-block">
+                    <span class="text-dim small">// Haz clic en cada proyecto para explorar el case study</span>
+                </div>
+            </div>
         </div>
-        <div class="container">
+
+        <div class="bento-container">
+            <div class="bento-grid">
+                
+                <!-- Project 1: LogiTrack (Hero Project - 7 cols) -->
+                <div class="project-bento-card project-bento-hero">
+                    <div class="project-preview-wrap">
+                        <img src="{% static 'images/routeplanner/landing.webp' %}" class="project-preview-img" alt="LogiTrack Route Planner">
+                        <div class="project-preview-overlay"></div>
+                    </div>
+                    <div class="project-bento-body">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="project-badge-featured">Featured Case Study</span>
+                            <div class="d-flex gap-2">
+                                <span class="tech-tag-badge">Django</span>
+                                <span class="tech-tag-badge">React</span>
+                                <span class="tech-tag-badge">HOS Compliance</span>
+                            </div>
+                        </div>
+                        <h3 class="fw-bold text-white mb-2" style="font-size: 1.6rem;">LogiTrack - Logística y Planificador de Rutas</h3>
+                        <p class="text-muted small mb-3">
+                            Plataforma integral para transportistas y flotas que calcula rutas óptimas respetando normativas estrictas de horas de servicio (HOS), puntos de descanso y consumo de combustible.
+                        </p>
+                        <div class="mt-auto pt-3 border-top border-white border-opacity-10 d-flex align-items-center justify-content-between">
+                            <span class="text-cyan small fw-bold">Rutas · Rest Stops · Fuel API</span>
+                            <a href="{% url 'proyecto_logitrack' %}" class="btn-neon-blue py-2 px-3 small">
+                                Ver Case Study &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: AgroTrack (Secondary - 5 cols) -->
+                <div class="project-bento-card project-bento-secondary">
+                    <div class="project-preview-wrap">
+                        <img src="{% static 'images/agrotrack/landingAgroTrack.png' %}" class="project-preview-img" alt="AgroTrack Management">
+                        <div class="project-preview-overlay"></div>
+                    </div>
+                    <div class="project-bento-body">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="pill-info" style="font-size: 0.7rem; color: #10b981; border-color: rgba(16, 185, 129, 0.3);">Agtech Solution</span>
+                            <div class="d-flex gap-1">
+                                <span class="tech-tag-badge">DRF</span>
+                                <span class="tech-tag-badge">Vue 3</span>
+                            </div>
+                        </div>
+                        <h4 class="fw-bold text-white mb-2">AgroTrack</h4>
+                        <p class="text-muted small mb-3">
+                            Sistema de gestión para el sector agropecuario con control de campañas agrícolas, lotes georreferenciados, labores y aplicaciones de fitosanitarios.
+                        </p>
+                        <div class="mt-auto pt-3 border-top border-white border-opacity-10 d-flex align-items-center justify-content-between">
+                            <span class="text-cyan small fw-bold">PostgreSQL · Lotes · Stock</span>
+                            <a href="{% url 'proyecto_agrotrack' %}" class="btn-glass-subtle py-2 px-3 small">
+                                Ver detalles &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Herrera Automotores (Half - 6 cols) -->
+                <div class="project-bento-card project-bento-half">
+                    <div class="project-preview-wrap">
+                        <img src="{% static 'images/DASHBOARD.webp' %}" class="project-preview-img" alt="Herrera Automotores DMS">
+                        <div class="project-preview-overlay"></div>
+                    </div>
+                    <div class="project-bento-body">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="pill-info" style="font-size: 0.7rem; color: #60a5fa;">Dealer Management</span>
+                            <div class="d-flex gap-1">
+                                <span class="tech-tag-badge">Django</span>
+                                <span class="tech-tag-badge">Vue 3</span>
+                            </div>
+                        </div>
+                        <h4 class="fw-bold text-white mb-2">Herrera Automotores</h4>
+                        <p class="text-muted small mb-3">
+                            Solución integral de inventario de vehículos, gestión de relaciones con clientes (CRM), cotizaciones y documentación de transferencias.
+                        </p>
+                        <div class="mt-auto pt-3 border-top border-white border-opacity-10 d-flex align-items-center justify-content-between">
+                            <span class="text-cyan small fw-bold">CRM · Ventas · Inventario</span>
+                            <a href="{% url 'proyecto_agencia' %}" class="btn-glass-subtle py-2 px-3 small">
+                                Ver detalles &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Gestión de Cine (Half - 6 cols) -->
+                <div class="project-bento-card project-bento-half">
+                    <div class="project-preview-wrap">
+                        <img src="{% static 'images/image1.webp' %}" class="project-preview-img" alt="Cine Management System">
+                        <div class="project-preview-overlay"></div>
+                    </div>
+                    <div class="project-bento-body">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="pill-info" style="font-size: 0.7rem; color: #a78bfa;">Concurrencia &amp; ACID</span>
+                            <div class="d-flex gap-1">
+                                <span class="tech-tag-badge">Django</span>
+                                <span class="tech-tag-badge">MySQL</span>
+                            </div>
+                        </div>
+                        <h4 class="fw-bold text-white mb-2">Gestión Integral de Cine</h4>
+                        <p class="text-muted small mb-3">
+                            Venta de entradas, reserva interactiva de butacas por sala, control de cartelera y reporte financiero de taquilla con transacciones atómicas.
+                        </p>
+                        <div class="mt-auto pt-3 border-top border-white border-opacity-10 d-flex align-items-center justify-content-between">
+                            <span class="text-cyan small fw-bold">Ticketing · Salas · Transacciones</span>
+                            <a href="{% url 'proyecto_cine' %}" class="btn-glass-subtle py-2 px-3 small">
+                                Ver detalles &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH STACK SECTION -->
+    <section id="stack" class="py-5">
+        <div class="bento-container mb-4">
+            <div class="pill-info mb-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                <span>Arsenal Tecnológico</span>
+            </div>
+            <h2 class="fw-bold text-white mb-1" style="font-size: 2.2rem; letter-spacing: -1px;">
+                Tech Stack &amp; Herramientas
+            </h2>
+            <p class="text-muted">Tecnologías probadas en producción con las que construyo soluciones confiables.</p>
+        </div>
+
+        <div class="bento-container">
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3">
-                    <div class="project-card">
-                        <div class="project-img-wrapper">
-                            <img src="{% static 'images/routeplanner/landing.webp' %}" class="project-img" alt="LogiTrack route planner dashboard">
+                    <div class="stack-group">
+                        <div class="stack-group-title">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                            </svg>
+                            <span>Backend Core</span>
                         </div>
-                        <div class="project-body">
-                            <h5 class="fw-bold">LogiTrack</h5>
-                            <p class="text-muted small">Planificador logístico con rutas, HOS y combustible.</p>
-                            <div class="tech-tags"><span class="tag">Django</span><span class="tag">React</span></div>
-                            <div class="mt-4"><a href="{% url 'proyecto_logitrack' %}" class="text-primary text-decoration-none fw-bold small">Ver detalles &rarr;</a></div>
-                        </div>
+                        <div class="stack-item"><span>Python 3.12+</span></div>
+                        <div class="stack-item"><span>Django &amp; Django REST</span></div>
+                        <div class="stack-item"><span>FastAPI</span></div>
+                        <div class="stack-item"><span>SQLAlchemy</span></div>
+                        <div class="stack-item"><span>Express.js / Node</span></div>
                     </div>
                 </div>
+
                 <div class="col-md-6 col-lg-3">
-                    <div class="project-card">
-                        <div class="project-img-wrapper">
-                            <img src="{% static 'images/agrotrack/landingAgroTrack.png' %}" class="project-img">
+                    <div class="stack-group">
+                        <div class="stack-group-title">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                            </svg>
+                            <span>Bases de Datos</span>
                         </div>
-                        <div class="project-body">
-                            <h5 class="fw-bold">AgroTrack</h5>
-                            <p class="text-muted small">Sistema de gestión agrícola integral.</p>
-                            <div class="tech-tags"><span class="tag">DRF</span><span class="tag">Vue 3</span></div>
-                            <div class="mt-4"><a href="{% url 'proyecto_agrotrack' %}" class="text-primary text-decoration-none fw-bold small">Ver detalles &rarr;</a></div>
-                        </div>
+                        <div class="stack-item"><span>PostgreSQL</span></div>
+                        <div class="stack-item"><span>Supabase</span></div>
+                        <div class="stack-item"><span>MySQL</span></div>
+                        <div class="stack-item"><span>SQL Server</span></div>
+                        <div class="stack-item"><span>SQLite / In-Memory</span></div>
                     </div>
                 </div>
+
                 <div class="col-md-6 col-lg-3">
-                    <div class="project-card">
-                        <div class="project-img-wrapper">
-                            <img src="{% static 'images/image1.webp' %}" class="project-img">
+                    <div class="stack-group">
+                        <div class="stack-group-title">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                <polyline points="2 17 12 22 22 17"></polyline>
+                                <polyline points="2 12 12 17 22 12"></polyline>
+                            </svg>
+                            <span>Frontend &amp; UI</span>
                         </div>
-                        <div class="project-body">
-                            <h5 class="fw-bold">Gestión de Cine</h5>
-                            <p class="text-muted small">Plataforma full-stack para salas de cine.</p>
-                            <div class="tech-tags"><span class="tag">Django</span><span class="tag">MySQL</span></div>
-                            <div class="mt-4"><a href="{% url 'proyecto_cine' %}" class="text-primary text-decoration-none fw-bold small">Ver detalles &rarr;</a></div>
-                        </div>
+                        <div class="stack-item"><span>JavaScript Moderno (ES6+)</span></div>
+                        <div class="stack-item"><span>Vue 3 &amp; Vite</span></div>
+                        <div class="stack-item"><span>HTML5 / CSS3 / Grid</span></div>
+                        <div class="stack-item"><span>Bootstrap 5 &amp; Tailwind</span></div>
+                        <div class="stack-item"><span>Responsive &amp; UX</span></div>
                     </div>
                 </div>
+
                 <div class="col-md-6 col-lg-3">
-                    <div class="project-card">
-                        <div class="project-img-wrapper">
-                            <img src="{% static 'images/DASHBOARD.webp' %}" class="project-img" alt="Dashboard de Herrera Automotores">
+                    <div class="stack-group">
+                        <div class="stack-group-title">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                            </svg>
+                            <span>DevOps &amp; Tools</span>
                         </div>
-                        <div class="project-body">
-                            <h5 class="fw-bold">Herrera Automotores</h5>
-                            <p class="text-muted small">Dealer management app para inventario, CRM y ventas.</p>
-                            <div class="tech-tags"><span class="tag">Django</span><span class="tag">Vue 3</span></div>
-                            <div class="mt-4"><a href="{% url 'proyecto_agencia' %}" class="text-primary text-decoration-none fw-bold small">Ver detalles &rarr;</a></div>
-                        </div>
+                        <div class="stack-item"><span>Docker &amp; Containers</span></div>
+                        <div class="stack-item"><span>Git &amp; GitHub Workflows</span></div>
+                        <div class="stack-item"><span>Swagger / OpenAPI</span></div>
+                        <div class="stack-item"><span>Render &amp; Vercel</span></div>
+                        <div class="stack-item"><span>Linux / Bash Shell</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contacto" class="contact-section">
-        <div class="container">
-            <h2 class="hero-title">Vamos a construir juntos.</h2>
-            <div class="d-flex justify-content-center gap-4 my-5">
-                <a href="mailto:marcoscufre04@gmail.com" class="text-decoration-none text-main d-flex flex-column align-items-center">
-                    <div class="p-3 rounded-circle mb-2 border border-white border-opacity-25"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
-                    <span class="small fw-bold">Enviar Email</span>
-                </a>
-                <a href="https://www.linkedin.com/in/marcos-cufre-267562309/" class="text-decoration-none text-main d-flex flex-column align-items-center" target="_blank">
-                    <div class="p-3 rounded-circle mb-2 border border-white border-opacity-25"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg></div>
-                    <span class="small fw-bold">LinkedIn</span>
-                </a>
-                <a href="https://github.com/marcoscufre" class="text-decoration-none text-main d-flex flex-column align-items-center" target="_blank">
-                    <div class="p-3 rounded-circle mb-2 border border-white border-opacity-25"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"></path></svg></div>
-                    <span class="small fw-bold">GitHub</span>
-                </a>
+    <!-- PERSONAL CORNER (Beyond Code: Curiosidad, Lectura, Gaming & Filosofía) -->
+    <section id="personal" class="py-5">
+        <div class="bento-container mb-4">
+            <div class="pill-info mb-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+                <span>El Lado Humano</span>
             </div>
-            <div class="contact-form-container">
-                <form method="POST" action="{% url 'index' %}#contacto" novalidate>
-                    {% csrf_token %}
-                    
-                    <div class="mb-4 text-start">
-                        <label class="small text-muted mb-2 fw-bold text-uppercase">Tu Nombre</label>
-                        {{ form.name }}
-                        {% if form.name.errors %}
-                            <div class="text-danger small mt-1">{{ form.name.errors.0 }}</div>
-                        {% endif %}
-                    </div>
+            <h2 class="fw-bold text-white mb-1" style="font-size: 2.2rem; letter-spacing: -1px;">
+                Personal Corner &amp; Intereses
+            </h2>
+            <p class="text-muted">Más allá del código: lectura, pensamiento reflexivo, filosofía, gaming y lo que alimenta mi curiosidad.</p>
+        </div>
 
-                    <div class="mb-4 text-start">
-                        <label class="small text-muted mb-2 fw-bold text-uppercase">Tu Email</label>
-                        {{ form.email }}
-                        {% if form.email.errors %}
-                            <div class="text-danger small mt-1">{{ form.email.errors.0 }}</div>
-                        {% endif %}
+        <div class="bento-container">
+            <div class="bento-grid">
+                
+                <!-- Card 1: Books & Fiction -->
+                <div class="bento-card" style="grid-column: span 4;">
+                    <div class="bento-content">
+                        <div class="text-cyan mb-3">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                        </div>
+                        <h5 class="fw-bold text-white mb-2">Lectura &amp; Ficción</h5>
+                        <p class="text-muted small mb-3">
+                            Apasionado por la lectura de novelas policiales, intriga y misterio, además de grandes universos de fantasía épica, historia universal y mitologías antiguas. También disfruto de libros de arquitectura de software y programación.
+                        </p>
+                        <div class="mt-auto d-flex flex-wrap gap-1">
+                            <span class="hobby-pill" style="font-size: 0.75rem;">🔍 Policial &amp; Misterio</span>
+                            <span class="hobby-pill" style="font-size: 0.75rem;">⚔️ Fantasía &amp; Mitología</span>
+                        </div>
                     </div>
-                    
-                    <div class="mb-4 text-start">
-                        <label class="small text-muted mb-2 fw-bold text-uppercase">Mensaje</label>
-                        {{ form.message }}
-                        {% if form.message.errors %}
-                            <div class="text-danger small mt-1">{{ form.message.errors.0 }}</div>
-                        {% endif %}
+                </div>
+
+                <!-- Card 2: Gaming & Counter-Strike -->
+                <div class="bento-card" style="grid-column: span 4;">
+                    <div class="bento-content">
+                        <div class="text-cyan mb-3">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+                                <line x1="6" y1="12" x2="10" y2="12"></line>
+                                <line x1="8" y1="10" x2="8" y2="14"></line>
+                                <circle cx="15" cy="13" r="1"></circle>
+                                <circle cx="18" cy="11" r="1"></circle>
+                            </svg>
+                        </div>
+                        <h5 class="fw-bold text-white mb-2">Gaming &amp; Counter-Strike</h5>
+                        <p class="text-muted small mb-3">
+                            Fanático de los videojuegos y jugador activo de Counter-Strike (CS). Me apasiona la toma rápida de decisiones bajo presión, el pensamiento táctico y la precisión milimétrica, virtudes que aplico directamente al depurar y optimizar código.
+                        </p>
+                        <div class="mt-auto d-flex flex-wrap gap-1">
+                            <span class="hobby-pill" style="font-size: 0.75rem;">🎯 Counter-Strike</span>
+                            <span class="hobby-pill" style="font-size: 0.75rem;">⚡ Táctica &amp; Reflejos</span>
+                        </div>
                     </div>
+                </div>
 
-                    <!-- Honeypot oculto -->
-                    {{ form.website }}
+                <!-- Card 3: Curiosity, Philosophy & History -->
+                <div class="bento-card" style="grid-column: span 4;">
+                    <div class="bento-content">
+                        <div class="text-cyan mb-3">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 6v6l4 2"></path>
+                            </svg>
+                        </div>
+                        <h5 class="fw-bold text-white mb-2">Curiosidad &amp; Filosofía</h5>
+                        <p class="text-muted small mb-3">
+                            Mente inquieta y reflexiva: me encanta aprender cosas nuevas constantemente y profundizar en los porqués. Disfruto de la historia, las corrientes filosóficas y el análisis crítico de cómo se estructuran las ideas y los sistemas.
+                        </p>
+                        <div class="mt-auto d-flex flex-wrap gap-1">
+                            <span class="hobby-pill" style="font-size: 0.75rem;">🧠 Mentalidad Reflexiva</span>
+                            <span class="hobby-pill" style="font-size: 0.75rem;">🏛️ Filosofía e Historia</span>
+                        </div>
+                    </div>
+                </div>
 
-                    <button type="submit" class="btn btn-primary w-100 py-3 fw-bold rounded-3">Enviar Mensaje</button>
-                    
-                    {% if messages %}
-                        <div class="mt-3">
-                            {% for message in messages %}
-                                <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} small py-2">
-                                    {{ message }}
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION ("WRITE A LETTER" STYLE) -->
+    <section id="contacto" class="py-5">
+        <div class="bento-container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="contact-bento-form">
+                        <div class="text-center mb-4">
+                            <div class="pill-info mb-2">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                                <span>Get in touch</span>
+                            </div>
+                            <h2 class="fw-bold text-white mb-2" style="font-size: 2.5rem; letter-spacing: -1px;">
+                                Vamos a construir algo genial.
+                            </h2>
+                            <p class="text-muted">
+                                ¿Tienes un proyecto en mente, una vacante backend o quieres conversar sobre tecnología? Envíame un mensaje directo.
+                            </p>
+                            
+                            <!-- Social Connect Pills -->
+                            <div class="d-flex flex-wrap justify-content-center gap-3 my-4">
+                                <a href="mailto:marcoscufre04@gmail.com" class="btn-glass-subtle py-2 px-3">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                    <span>marcoscufre04@gmail.com</span>
+                                </a>
+                                <a href="https://www.linkedin.com/in/marcos-cufre-267562309/" target="_blank" class="btn-glass-subtle py-2 px-3">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                                        <circle cx="4" cy="4" r="2"></circle>
+                                    </svg>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="https://github.com/marcoscufre" target="_blank" class="btn-glass-subtle py-2 px-3">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                    </svg>
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Django Native Contact Form -->
+                        <form method="POST" action="{% url 'index' %}#contacto" novalidate>
+                            {% csrf_token %}
+                            
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6 text-start">
+                                    <label class="small text-muted mb-2 fw-bold text-uppercase">Tu Nombre</label>
+                                    {{ form.name }}
+                                    {% if form.name.errors %}
+                                        <div class="text-danger small mt-1">{{ form.name.errors.0 }}</div>
+                                    {% endif %}
                                 </div>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                </form>
+                                <div class="col-md-6 text-start">
+                                    <label class="small text-muted mb-2 fw-bold text-uppercase">Tu Email</label>
+                                    {{ form.email }}
+                                    {% if form.email.errors %}
+                                        <div class="text-danger small mt-1">{{ form.email.errors.0 }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4 text-start">
+                                <label class="small text-muted mb-2 fw-bold text-uppercase">Mensaje</label>
+                                {{ form.message }}
+                                {% if form.message.errors %}
+                                    <div class="text-danger small mt-1">{{ form.message.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+
+                            <!-- Honeypot oculto -->
+                            {{ form.website }}
+
+                            <button type="submit" class="btn-neon-blue w-100 py-3 justify-content-center fw-bold" style="font-size: 1rem;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                                Enviar Mensaje
+                            </button>
+                            
+                            {% if messages %}
+                                <div class="mt-4">
+                                    {% for message in messages %}
+                                        <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} small py-2 rounded-3 text-center">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-5 border-top border-white border-opacity-10 text-center text-muted small">© 2024 Marcos Cufré</footer>
+    <!-- FOOTER -->
+    <footer class="py-5 border-top border-white border-opacity-10 text-center text-muted small">
+        <div class="container">
+            <p class="mb-1 text-white fw-bold">Marcos Cufré &copy; 2026</p>
+            <p class="mb-0 text-dim">Diseñado con inspiración en <a href="https://www.radnaabazar.com/en" target="_blank" class="text-cyan text-decoration-none">radnaabazar.com</a> · Built with Python &amp; Django</p>
+        </div>
+    </footer>
+
+    <!-- PERSISTENT FLOATING MINI-DOCK (Appears when scrolling) -->
+    <div id="mini-music-dock" class="mini-dock">
+        <img id="dock-cover" src="{% static 'images/music/one_piece.webp' %}" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?w=100&auto=format&fit=crop&q=80';" class="mini-dock-cover" alt="Dock Cover">
+        <div class="d-flex flex-column">
+            <span class="mini-dock-title" id="dock-title">UUUUUS! (All of Us)</span>
+            <span class="small text-cyan" id="dock-artist" style="font-size: 0.68rem;">One Piece OST</span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <button id="dock-play-btn" class="mini-dock-btn" title="Play / Pause">
+                <svg id="dock-play-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <svg id="dock-pause-icon" class="d-none" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="6" y="4" width="4" height="16"></rect>
+                    <rect x="14" y="4" width="4" height="16"></rect>
+                </svg>
+            </button>
+            <button id="dock-next-btn" class="btn-ctrl p-1 text-white" title="Siguiente canción">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                    <line x1="19" y1="5" x2="19" y2="19"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="copy-toast" class="bento-toast">¡Email copiado al portapapeles!</div>
+
+    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/music-player.js' %}"></script>
+    <script src="{% static 'js/portfolio.js' %}"></script>
 </body>
 </html>
